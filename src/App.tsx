@@ -11,6 +11,7 @@ import Navigation from './components/Navbar/Navbar.component';
 import AboutSection from './components/AboutComponents/About.component';
 import Dashboard from './components/DashboardComponents/Dashboard.component';
 import LandingPage from './components/LandingPageComponents/LandingPage.component';
+import AuthRouting from './components/Routing/PreventReAuthentication';
 
 const queryClient = new QueryClient();
 
@@ -26,8 +27,10 @@ const App = () => {
       <Router>
         {showNav ? <Navigation /> : null}
         <Routes>
-          <Route path='/signin' element={<Signin showNav={setShowNav} />} />
-          <Route path='/signup' element={<Signup showNav={setShowNav} />} />
+          <Route path='/' element={<AuthRouting />}>
+            <Route path='/signin' element={<Signin showNav={setShowNav} />} />
+            <Route path='/signup' element={<Signup showNav={setShowNav} />} />
+          </Route>
           <Route path='/' element={<LandingPage />} />
           <Route path='/home' element={<PrivateRoute />}>
             <Route path='/home' element={<Dashboard />} />
