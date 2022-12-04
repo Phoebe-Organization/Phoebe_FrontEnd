@@ -27,25 +27,25 @@ const App = () => {
   return (
     <QueryClientProvider client={queryClient}>
       <Router>
-        {/* {showNav ? <Navigation /> : null} */}
-        <div className='container'>
-          <div className='sideBar'>
+        {showNav ? <Navigation /> : null}
+        {/* <div className='app-container'> */}
+        {/* <div className='sideBar'>
             <Sidebar />
-          </div>
-          <div className='content'>
-            <Routes>
-              <Route path='/' element={<LandingPage />} />
-              <Route path='/' element={<AuthRouting />}>
-                <Route path={Paths.SIGNIN} element={<Signin showNav={setShowNav} />} />
-                <Route path={Paths.SIGNUP} element={<Signup showNav={setShowNav} />} />
-              </Route>
-              <Route path={Paths.HOME} element={<PrivateRoute />}>
-                <Route path={Paths.HOME} element={<Dashboard />} />
-              </Route>
-              <Route path={Paths.ABOUT} element={<AboutSection />} />
-            </Routes>
-          </div>
-        </div>
+          </div> */}
+        {/* <div className='content'> */}
+        <Routes>
+          <Route path='/' element={<LandingPage />} />
+          <Route path='/' element={<AuthRouting />}>
+            <Route path={Paths.SIGNIN} element={<Signin showNav={setShowNav} />} />
+            <Route path={Paths.SIGNUP} element={<Signup showNav={setShowNav} />} />
+          </Route>
+          <Route path={Paths.HOME} element={<PrivateRoute />}>
+            <Route path={Paths.HOME} element={<Dashboard />} />
+          </Route>
+          <Route path={Paths.ABOUT} element={<AboutSection />} />
+        </Routes>
+        {/* </div>
+        </div> */}
       </Router>
     </QueryClientProvider>
   );
