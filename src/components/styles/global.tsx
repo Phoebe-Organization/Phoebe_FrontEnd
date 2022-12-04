@@ -8,7 +8,6 @@ export const GlobalStyle = createGlobalStyle({
     margin: '0',
     width: '100%',
     minHeight: '100vh',
-    maxWidth: '1280px',
     textAlign: 'center',
   },
 

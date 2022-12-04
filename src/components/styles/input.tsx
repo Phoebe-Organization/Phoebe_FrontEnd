@@ -1,6 +1,20 @@
 import styled from 'styled-components';
 
-export const InputContainer = styled.div`
+export const InputContainer = styled.div({
+  position: "relative",
+  width: "350px",
+  margin: "auto",
+  display: "flex",
+  flexDirection: "column",
+  justifyContent: "space-evenly",
+
+  input: {
+    border: "none",
+    border: "2px solid #e2e2e2",
+    transition: "border-color 0.1s linear",
+    paddingLeft: "15p"
+  }
+})
   position: relative;
   width: 350px;
   margin: auto;
