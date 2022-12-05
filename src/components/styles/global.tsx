@@ -16,6 +16,10 @@ export const GlobalStyle = createGlobalStyle({
     lineHeight: '1.1',
   },
 
+  a: {
+    textDecoration: 'none',
+  },
+
   button: {
     border: '1px solid transparent',
     padding: '0.6em 1.2em',
@@ -23,6 +27,7 @@ export const GlobalStyle = createGlobalStyle({
     fontWeight: '500',
     fontFamily: 'inherit',
     backgroundColor: '#1a1a1a',
+    borderRadius: '4px',
     cursor: 'pointer',
     transition: 'border-color 0.25s',
     '&:hover': {

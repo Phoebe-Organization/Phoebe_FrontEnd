@@ -1,7 +1,7 @@
 import React from 'react';
 import { ButtonSizes } from './ButtonSizes';
 import { ButtonStyles } from './ButtonStyles';
-import './ButtonComponentsStyling/Button.scss';
+import { StyledButton } from '../styles/button';
 
 export interface ButtonProps {
   action: () => void;
@@ -14,9 +14,14 @@ export interface ButtonProps {
 const Button = (btnProps: ButtonProps) => {
   const { action, btnSize, btnStyle, disabled, children } = btnProps;
   return (
-    <button className={`${btnSize} ${btnStyle}`} disabled={disabled} onClick={() => action()}>
+    <StyledButton
+      $btnSize={btnSize}
+      $btnStyle={btnStyle}
+      disabled={disabled}
+      onClick={() => action()}
+    >
       {children}
-    </button>
+    </StyledButton>
   );
 };
 

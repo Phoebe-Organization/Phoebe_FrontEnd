@@ -2,7 +2,6 @@ import React, { Dispatch, SetStateAction, useEffect, useState } from 'react';
 import Button, { ButtonProps } from '../ButtonComponents/Button.component';
 import { ButtonSizes } from '../ButtonComponents/ButtonSizes';
 import { ButtonStyles } from '../ButtonComponents/ButtonStyles';
-import './AuthComponentsStyling/Auth.scss';
 import { useSignIn } from './AuthHooks';
 import Spinner from 'react-bootstrap/Spinner';
 import 'bootstrap/dist/css/bootstrap.css';
@@ -15,6 +14,7 @@ import {
   AuthContainer,
   AuthVideoContainer,
   ButtonGroup,
+  ChangeAuthMethod,
   ContinueWithButton,
   ErrorMessage,
   SigninContentContainer,
@@ -110,7 +110,6 @@ const Signin = ({ showNav }: SigninProps) => {
           <br />
           <ButtonGroup>
             <Button {...signInBtn} />
-            {/* <Button {...signInBtn} /> */}
             <ContinueWithButton fontSize='24px'>
               <span>
                 <FaApple />
@@ -135,11 +134,11 @@ const Signin = ({ showNav }: SigninProps) => {
           {signInStatus == 'loading' ? <Spinner animation='grow' /> : <span></span>}
         </SigninContentContainer>
 
-        <div className='change-auth-method'>
+        <ChangeAuthMethod>
           <p>
             Don't have an account? <Link to='/signup'>Sign Up</Link>
           </p>
-        </div>
+        </ChangeAuthMethod>
       </SigninField>
 
       <AuthVideoContainer>

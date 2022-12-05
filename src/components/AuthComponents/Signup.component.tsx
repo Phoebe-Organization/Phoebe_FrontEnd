@@ -6,17 +6,17 @@ import { Link, useNavigate } from 'react-router-dom';
 import Button, { ButtonProps } from '../ButtonComponents/Button.component';
 import InputField from '../InputFieldComponents/InputField.component';
 import { useSignUp } from './AuthHooks';
-// import signUpVideo from '../../assets/signup.mp4';
 import signUpVideo from '../../assets/signup-compressed.mp4';
 import { ButtonSizes } from '../ButtonComponents/ButtonSizes';
 import { ButtonStyles } from '../ButtonComponents/ButtonStyles';
-import './AuthComponentsStyling/Auth.scss';
 import {
   AuthContainer,
   AuthVideoContainer,
   ButtonGroup,
+  ChangeAuthMethod,
   ContinueWithButton,
   Divider,
+  ErrorMessage,
   FormInputContainer,
   SignupContentContainer,
   SignupField,
@@ -64,9 +64,6 @@ const Signup = ({ showNav }: RegisterProps) => {
         <Video src={signUpVideo} loop autoPlay muted />
       </AuthVideoContainer>
       <SignupField>
-        {/* <button className='back-button' onClick={() => navigate(-1)}>
-          Back
-        </button> */}
         <SignupContentContainer>
           <TitleContainer>
             <Title>Create Your Account!</Title>
@@ -171,25 +168,24 @@ const Signup = ({ showNav }: RegisterProps) => {
           </FormInputContainer>
           {signUpError ? (
             <>
-              <div className='error'>
+              <ErrorMessage>
                 <span>{signUpErrorMessage}</span>
-              </div>
+              </ErrorMessage>
               <br />
             </>
           ) : null}
           <br />
-          <div className='button-group'>
+          <ButtonGroup>
             <Button {...signUpBtn} />
-            {/* <Button {...signInBtn} /> */}
-          </div>
+          </ButtonGroup>
           <br />
           {signUpStatus == 'loading' ? <Spinner animation='grow' /> : <span></span>}
         </SignupContentContainer>
-        <div className='change-auth-method'>
+        <ChangeAuthMethod>
           <p>
             Already have an account? <Link to='/signin'>Sign In</Link>
           </p>
-        </div>
+        </ChangeAuthMethod>
       </SignupField>
     </AuthContainer>
   );

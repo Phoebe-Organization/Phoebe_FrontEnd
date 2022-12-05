@@ -86,6 +86,9 @@ export const ButtonGroup = styled.div({
   justifyContent: 'space-between',
   flexDirection: 'column',
   alignItems: 'center',
+  button: {
+    margin: '10px 0',
+  },
 });
 
 interface Icons {
@@ -155,4 +158,9 @@ export const FormInputContainer = styled.div({
 export const TermsAndConditions = styled.div({
   display: 'flex',
   justifyContent: 'space-evenly',
+});
+
+export const ChangeAuthMethod = styled.div({
+  marginTop: '1em',
+  marginBottom: '10em',
 });

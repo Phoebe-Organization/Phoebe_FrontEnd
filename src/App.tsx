@@ -1,6 +1,5 @@
 import { Dispatch, SetStateAction, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import './App.scss';
 import Signin from './components/AuthComponents/Sigin.component';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { getAuthToken } from './utils/getAuthToken';
@@ -32,7 +31,6 @@ const App = () => {
         {/* <div className='sideBar'>
             <Sidebar />
           </div> */}
-        {/* <div className='content'> */}
         <Routes>
           <Route path='/' element={<LandingPage />} />
           <Route path='/' element={<AuthRouting />}>
@@ -44,8 +42,6 @@ const App = () => {
           </Route>
           <Route path={Paths.ABOUT} element={<AboutSection />} />
         </Routes>
-        {/* </div>
-        </div> */}
       </Router>
     </QueryClientProvider>
   );
