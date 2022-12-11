@@ -1,5 +1,27 @@
 import styled, { keyframes, css } from 'styled-components';
 
+/******************* Hero Styling *******************/
+
+export const HeroContainer = styled.div({
+  display: 'flex',
+  flexDirection: 'row',
+});
+
+export const HeroContent = styled.div({
+  display: 'flex',
+  justifyContent: 'center',
+  flexDirection: 'column',
+  h1: {
+    fontSize: '2em',
+    textAlign: 'left',
+  },
+  p: {
+    textAlign: 'left',
+    fontSize: '1.2em',
+  },
+});
+
+/******************* Downloads App Styling *******************/
 export const backgroundAnimation = keyframes`
     0%{
         background-position:10% 0%;
@@ -12,11 +34,13 @@ export const backgroundAnimation = keyframes`
     }
 `;
 
-export const HeroContainer = styled.div({
+export const DownloadAppContainer = styled.div({
   display: 'flex',
   justifyContent: 'space-evenly',
   flexDirection: 'row',
   alignItems: 'center',
+  maxWidth: '1400px',
+  minHeight: '600px',
   '.downloadApp': {
     fontSize: '22px',
     display: 'flex',

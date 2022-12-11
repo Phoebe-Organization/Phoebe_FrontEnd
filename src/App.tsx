@@ -9,7 +9,7 @@ import Signup from './components/AuthComponents/Signup.component';
 import Navigation from './components/Navbar/Navbar.component';
 import AboutSection from './components/AboutComponents/About.component';
 import Dashboard from './components/DashboardComponents/Dashboard.component';
-import LandingPage from './components/LandingPageComponents/LandingPage.component';
+import LandingPage from './components/LandingPageComponents';
 import AuthRouting from './components/Routing/PreventReauthentication';
 import { Paths } from './globals/paths';
 import Sidebar from './components/Navbar/Sidebar.component';
