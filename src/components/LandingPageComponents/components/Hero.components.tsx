@@ -2,12 +2,14 @@ import React from 'react';
 import Button from '../../ButtonComponents/Button.component';
 import { ButtonSizes } from '../../ButtonComponents/ButtonSizes';
 import { ButtonStyles } from '../../ButtonComponents/ButtonStyles';
-import { HeroContainer, HeroContent } from '../../styles/landingpage';
+import { HeroContainer, HeroContent, HeroImage } from '../../styles/landingpage';
+import HeroImg from '../../../assets/relaxation.svg';
 
 const Header = () => {
   return (
     <h1 className='font-roboto boldTxt'>
-      Finding great fellowship has never been <br /> easier than before with Phoebe!
+      Finding great fellowship <br /> has never been easier
+      <br /> than before with Phoebe!
     </h1>
   );
 };
@@ -34,6 +36,9 @@ export const Hero = () => {
             Get Started!
           </Button>
         </HeroContent>
+        <HeroImage>
+          <img src={HeroImg} alt='' />
+        </HeroImage>
       </HeroContainer>
     </>
   );

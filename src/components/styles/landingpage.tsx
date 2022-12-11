@@ -2,9 +2,20 @@ import styled, { keyframes, css } from 'styled-components';
 
 /******************* Hero Styling *******************/
 
+export const HeroImage = styled.div({
+  display: 'flex',
+  alignItems: 'center',
+  img: {
+    maxWidth: '500px',
+  },
+});
+
 export const HeroContainer = styled.div({
+  height: '500px',
   display: 'flex',
   flexDirection: 'row',
+  justifyContent: 'space-evenly',
+  alignItems: 'center',
 });
 
 export const HeroContent = styled.div({
@@ -12,12 +23,14 @@ export const HeroContent = styled.div({
   justifyContent: 'center',
   flexDirection: 'column',
   h1: {
-    fontSize: '2em',
+    fontSize: '2.5em',
     textAlign: 'left',
+    marginBottom: '12px',
   },
   p: {
     textAlign: 'left',
     fontSize: '1.2em',
+    marginBottom: '2.5em',
   },
 });
 
@@ -41,6 +54,7 @@ export const DownloadAppContainer = styled.div({
   alignItems: 'center',
   maxWidth: '1400px',
   minHeight: '600px',
+  margin: 'auto',
   '.downloadApp': {
     fontSize: '22px',
     display: 'flex',
@@ -128,4 +142,11 @@ export const IPhoneBackgroundImage = styled.div({
   objectFit: 'cover',
   backgroundSize: 'cover',
   backgroundPosition: 'center',
+});
+
+/******************* Footer Styling *******************/
+
+export const FooterContainer = styled.div({
+  minHeight: '400px',
+  backgroundColor: '#403c56',
 });
