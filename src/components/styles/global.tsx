@@ -41,4 +41,20 @@ export const GlobalStyle = createGlobalStyle({
       opacity: '0.3',
     },
   },
+
+  '.boldTxt': {
+    fontWeight: '700',
+  },
+  '.font-roboto': {
+    fontFamily: 'Roboto, sans-serif',
+  },
+  '.font-roboto-condensed': {
+    fontFamily: 'Roboto Condensed, sans-serif',
+  },
+  '.font-times': {
+    fontFamily: 'Times New Roman, Times, serif',
+  },
+  '.font-dancing': {
+    fontFamily: 'Dancing Script, cursive',
+  },
 });

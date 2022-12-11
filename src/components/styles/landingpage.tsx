@@ -1,8 +1,45 @@
-import styled from 'styled-components';
+import styled, { keyframes, css } from 'styled-components';
+
+export const backgroundAnimation = keyframes`
+    0%{
+        background-position:10% 0%;
+    }
+    50%{
+        background-position:91% 100%;
+    }
+    100%{
+        background-position:10% 0%;
+    }
+`;
+
+export const HeroContainer = styled.div({
+  display: 'flex',
+  justifyContent: 'space-evenly',
+  flexDirection: 'row',
+  alignItems: 'center',
+  '.downloadApp': {
+    fontSize: '22px',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    flexDirection: 'column',
+    '.phoebeLogo': {
+      width: '100px',
+    },
+  },
+});
+
+export const Special = styled.span`
+  background: linear-gradient(90deg, rgba(151, 36, 209, 1) 0%, rgba(232, 20, 218, 1) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% 200%;
+  animation: ${backgroundAnimation} 2s linear infinite;
+`;
 
 export const IPhoneImage = styled.img({
   width: '250px',
-  height: '500px',
+  height: '400px',
 
   backgroundSize: 'cover',
   backgroundPosition: 'center',
@@ -11,7 +48,7 @@ export const IPhoneImage = styled.img({
 });
 
 export const FloatingShadow = styled.img({
-  width: '250px',
+  width: '200px',
 });
 
 export const IPhoneImageContainer = styled.div({
@@ -22,6 +59,13 @@ export const IPhoneImageContainer = styled.div({
 });
 
 export const AppStoreButtonContainer = styled.div({
+  display: 'flex',
+  justifyContent: 'space-evenly',
+  flexDirection: 'row',
+});
+
+export const AppStoreButton = styled.div({
+  margin: '0px 10px',
   cursor: 'pointer',
   backgroundColor: '#000000',
   color: 'white',
@@ -47,64 +91,12 @@ export const AppStoreButtonContainer = styled.div({
   },
 });
 
-// .flex {
-//     display: flex;
-//     align-items: center;
-//     justify-content: center;
-//    }
-
-//    .app {
-//     &-btn {
-//      width: 45%;
-//      max-width: 160px;
-//      color: #fff;
-//      margin: 20px 10px;
-//      text-align: left;
-//      border-radius: 5px;
-//      text-decoration: none;
-//      font-family: "Lucida Grande", sans-serif;
-//      font-size: 10px;
-//      text-transform: uppercase;
-//      &.blu {
-//       background-color: #101010;
-//       transition: background-color 0.25s linear;
-//       &:hover {
-//        background-color: #454545;
-//       }
-//      }
-//      i {
-//       width: 20%;
-//       text-align: center;
-//       font-size: 28px;
-//       margin-right: 7px;
-//      }
-//      .big-txt {
-//       font-size: 17px;
-//       text-transform: capitalize;
-//      }
-//     }
-//    }
-
-// export const BackgroundImg = styled.img({
-//   position: 'absolute',
-//   top: '0',
-//   left: '0',
-//   height: '100%',
-//   width: '100%',
-//   backgroundSize: 'cover',
-//   backgroundPosition: 'center',
-//   objectFit: 'cover',
-//   overflow: 'hidden',
-//   //   zIndex: '-1',
-// });
-
 export const IPhoneBackgroundImage = styled.div({
   position: 'relative',
-  height: '434px',
-  width: '210px',
+  height: '350px',
+  width: '168px',
   overflow: 'hidden',
-  backgroundColor: 'blue',
-  borderRadius: '30px',
+  borderRadius: '27px',
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',

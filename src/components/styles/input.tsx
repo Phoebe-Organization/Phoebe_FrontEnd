@@ -9,7 +9,7 @@ export const InputContainer = styled.div({
   justifyContent: 'space-evenly',
 
   input: {
-    border: '2px solid #e2e2e2',
+    border: '1px solid #e2e2e2',
     transition: 'border-color 0.1s linear',
     paddingLeft: '15px',
     position: 'relative',
@@ -31,8 +31,19 @@ export const InputContainer = styled.div({
     userSelect: 'none',
     fontSize: '20px',
     color: '#000000',
-    fontFamily: 'Times New Roman, Times, serif',
     fontWeight: '700',
     lineHeight: '1.3em',
+  },
+  '.inputIcon': {
+    paddingLeft: '25px',
+  },
+  '.icon': {
+    position: 'absolute',
+    zIndex: '2',
+    top: '4px',
+    left: '6px',
+  },
+  '.inputTextContainer': {
+    position: 'relative',
   },
 });
