@@ -1,10 +1,12 @@
 import React, { Dispatch, SetStateAction, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { getAuthToken } from '../../utils/getAuthToken';
+import { Rail } from '../RailsComponents';
+import { UserCard } from '../RailsComponents/components/UserCard.component';
 import { DownloadApp } from './components/DownloadApp.component';
 import { Footer } from './components/Footer.component';
-import { Hero } from './components/Hero.components';
-import { Search } from './components/Search.components';
+import { Hero } from './components/Hero.component';
+import { Search } from './components/Search.component';
 
 interface LandingPageProps {
   showNav: Dispatch<SetStateAction<boolean>>;
@@ -13,6 +15,8 @@ interface LandingPageProps {
 const LandingPage = () => {
   const navigation = useNavigate();
   const isAuthenticated = getAuthToken();
+
+  const cards = [<UserCard />, <UserCard />, <UserCard />, <UserCard />, <UserCard />];
 
   useEffect(() => {
     if (isAuthenticated != null) {
@@ -23,6 +27,7 @@ const LandingPage = () => {
   return (
     <>
       <Hero />
+      <Rail cards={cards}>Popular Users</Rail>
       <DownloadApp />
       <Search />
       <Footer />
