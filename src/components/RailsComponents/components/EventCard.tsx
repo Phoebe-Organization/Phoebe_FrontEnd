@@ -6,12 +6,16 @@ import {
   CardSubContent,
   CardSubContentContainer,
   CardTag,
+  ProfilePicture,
 } from '../../styles/cards';
 import LocationIcon from '../../../assets/icons/location.svg';
 import Button from '../../ButtonComponents/Button.component';
 import { ButtonSizes } from '../../ButtonComponents/ButtonSizes';
 import { ButtonStyles } from '../../ButtonComponents/ButtonStyles';
 import { FaUsers } from 'react-icons/fa';
+import { FiClock } from 'react-icons/fi';
+import moment from 'moment';
+import { formatDate } from '../../../globals/formatDate';
 
 interface EventCardProps {
   img?: string;
@@ -21,6 +25,9 @@ interface EventCardProps {
   title?: string;
   distance?: number;
   attendees?: number;
+  start?: number;
+  hostImage?: string;
+  hostName?: string;
 }
 
 export const EventCard = ({
@@ -31,6 +38,9 @@ export const EventCard = ({
   title = 'Lincoln Park',
   distance = 9.8,
   attendees = 1,
+  start = 8,
+  hostImage,
+  hostName,
 }: EventCardProps) => {
   return (
     <div style={{ position: 'relative', margin: '0px 10px' }}>
@@ -38,13 +48,19 @@ export const EventCard = ({
       <Card $imgSrc={img}>
         <CardSubContentContainer>
           <CardSubContent>
+            <div className='host'>
+              <ProfilePicture src={hostImage} />
+              <p>{hostName}</p>
+            </div>
             <div className='attending'>
               <FaUsers />
               <p>
                 <span>&#40;{attendees}&#41;</span> Attendees
               </p>
             </div>
-            <p>What?</p>
+            <p className='time'>
+              <FiClock /> {formatDate(Date.now())}
+            </p>
           </CardSubContent>
         </CardSubContentContainer>
         <CardTag>

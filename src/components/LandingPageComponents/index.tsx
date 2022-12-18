@@ -9,6 +9,7 @@ import { Hero } from './components/Hero.component';
 import { Search } from './components/Search.component';
 import * as Img from '../../assets/places';
 import { FaGolfBall } from 'react-icons/fa';
+import Person from '../../assets/people/profileImage.jpg';
 
 interface LandingPageProps {
   showNav: Dispatch<SetStateAction<boolean>>;
@@ -19,11 +20,18 @@ const LandingPage = () => {
   const isAuthenticated = getAuthToken();
 
   const cards = [
-    <EventCard img={Img.Store1} icon={<FaGolfBall />} tagName={'Parks'} key='card1' />,
-    <EventCard img={Img.Store2} key='card2' />,
-    <EventCard img={Img.Store3} key='card3' />,
-    <EventCard img={Img.Store4} key='card4' />,
-    <EventCard img={Img.Store5} key='card5' />,
+    <EventCard
+      img={Img.Store1}
+      icon={<FaGolfBall />}
+      tagName={'Parks'}
+      key='card1'
+      hostImage={Person}
+      hostName='Natalié'
+    />,
+    <EventCard img={Img.Store2} key='card2' hostImage={Person} hostName='Natalié' />,
+    <EventCard img={Img.Store3} key='card3' hostImage={Person} hostName='Natalié' />,
+    <EventCard img={Img.Store4} key='card4' hostImage={Person} hostName='Natalié' />,
+    <EventCard img={Img.Store5} key='card5' hostImage={Person} hostName='Natalié' />,
   ];
 
   useEffect(() => {

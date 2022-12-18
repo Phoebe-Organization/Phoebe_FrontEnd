@@ -74,15 +74,33 @@ export const CardSubContent = styled.div`
   p {
     font-size: 14px;
   }
+  .host {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    p {
+      margin-left: 10px;
+      font-size: 16px;
+    }
+  }
   .attending {
     display: flex;
     align-items: center;
+    margin-bottom: 3px;
     p {
       text-align: left;
       margin-left: 4px;
       span {
         color: #fcffa4;
       }
+    }
+  }
+  .time {
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+    svg {
+      margin-right: 5px;
     }
   }
 `;
@@ -172,4 +190,14 @@ export const CardContent = styled.div`
       opacity: 0.5;
     }
   }
+`;
+
+export const ProfilePicture = styled.img`
+  border-radius: 50%;
+  background-color: #ffffff;
+  height: 30px;
+  width: 30px;
+  object-fit: cover;
+  background-size: cover;
+  background-position: center;
 `;
