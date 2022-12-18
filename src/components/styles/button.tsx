@@ -35,17 +35,17 @@ export const StyledButton = styled.button(({ $btnSize, $btnStyle }: ButtonStyled
   }
   switch ($btnStyle) {
     case ButtonStyles.SOLID:
-      (obj['color'] = $primaryTextColor), (obj['backgroundColor'] = '#1a1a1a;');
+      (obj['color'] = $primaryTextColor), (obj['background-color'] = '#1a1a1a;');
       break;
     case ButtonStyles.PRIMARY:
-      (obj['color'] = $primaryTextColor), (obj['backgroundColor'] = $primaryColor);
+      (obj['color'] = $primaryTextColor), (obj['background-color'] = $primaryColor);
       break;
     case ButtonStyles.SECONDARY:
-      (obj['color'] = $primaryTextColor), (obj['backgroundColor'] = $secondaryColor);
+      (obj['color'] = $primaryTextColor), (obj['background-color'] = $secondaryColor);
       break;
     case ButtonStyles.TRANSPARENT:
       (obj['border'] = '1px solid black'),
-        (obj['backgroundColor'] = 'transparent'),
+        (obj['background-color'] = 'transparent'),
         (obj['color'] = $secondaryTextColor);
       break;
     default:

@@ -111,20 +111,20 @@ const Signin = ({ showNav }: SigninProps) => {
           <br />
           <ButtonGroup>
             <Button {...signInBtn} />
-            <ContinueWithButton fontSize='24px'>
+            <ContinueWithButton font-size='24px'>
               <span>
                 <FaApple />
               </span>
               <span>Sign in with Apple</span>
             </ContinueWithButton>
-            <ContinueWithButton fontSize='24px'>
+            <ContinueWithButton font-size='24px'>
               <span>
                 <FcGoogle />
               </span>
               <span>Sign in with Google</span>
             </ContinueWithButton>
 
-            <ContinueWithButton fontSize='24px' color='#4267b2'>
+            <ContinueWithButton font-size='24px' color='#4267b2'>
               <span>
                 <FaFacebook />
               </span>

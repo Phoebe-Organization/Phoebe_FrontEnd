@@ -22,8 +22,8 @@ export const DownloadApp = () => {
         </IPhoneBackgroundImage>
         <FloatingShadow src={FloatingImg} />
       </IPhoneImageContainer>
-      <div className='downloadApp'>
-        <img src={Phoebe} className='phoebeLogo' />
+      <div className='download-app'>
+        <img src={Phoebe} className='phoebe-logo' />
 
         <p className='boldTxt'>
           Download the app
