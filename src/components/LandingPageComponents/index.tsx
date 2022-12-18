@@ -19,11 +19,11 @@ const LandingPage = () => {
   const isAuthenticated = getAuthToken();
 
   const cards = [
-    <EventCard img={Img.Store1} icon={<FaGolfBall />} tagName={'Parks'} />,
-    <EventCard img={Img.Store2} />,
-    <EventCard img={Img.Store3} />,
-    <EventCard img={Img.Store4} />,
-    <EventCard img={Img.Store5} />,
+    <EventCard img={Img.Store1} icon={<FaGolfBall />} tagName={'Parks'} key='card1' />,
+    <EventCard img={Img.Store2} key='card2' />,
+    <EventCard img={Img.Store3} key='card3' />,
+    <EventCard img={Img.Store4} key='card4' />,
+    <EventCard img={Img.Store5} key='card5' />,
   ];
 
   useEffect(() => {

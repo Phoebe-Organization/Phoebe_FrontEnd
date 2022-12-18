@@ -8,7 +8,7 @@ export interface ButtonProps {
   btnSize?: ButtonSizes;
   btnStyle?: ButtonStyles;
   disabled?: boolean;
-  children: string;
+  children?: string;
 }
 
 const Button = ({

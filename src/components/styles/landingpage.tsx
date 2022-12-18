@@ -70,6 +70,7 @@ export const DownloadAppContainer = styled.div`
 export const Special = styled.span`
   background: linear-gradient(90deg, rgba(151, 36, 209, 1) 0%, rgba(232, 20, 218, 1) 100%);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   background-size: 200% 200%;
   animation: ${backgroundAnimation} 2s linear infinite;

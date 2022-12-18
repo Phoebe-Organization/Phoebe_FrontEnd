@@ -22,7 +22,6 @@ export const GlobalStyle = createGlobalStyle`
 
   button {
     border: 1px solid transparent;
-    padding: 0.6em 1.2em;
     font-size: 1em;
     font-weight: 500;
     font-family: inherit;
@@ -30,6 +29,7 @@ export const GlobalStyle = createGlobalStyle`
     border-radius: 4px;
     cursor: pointer;
     transition: border-color 0.25s;
+    height: 40px;
     &:hover {
       border-color: #646cff;
     }
@@ -37,7 +37,7 @@ export const GlobalStyle = createGlobalStyle`
       outline: 4px auto -webkit-focus-ring-color;
     }
     &:disabled {
-      pointerEvents: none;
+      pointer-events: none;
       opacity: 0.3;
     }
   }

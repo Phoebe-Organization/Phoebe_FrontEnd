@@ -27,8 +27,8 @@ export const InputContainer = styled.div`
   label {
     width: 100%;
     display: flex;
-    pointerevents: none;
-    userselect: none;
+    pointer-events: none;
+    user-select: none;
     font-size: 20px;
     color: #000000;
     font-weight: 700;
@@ -43,7 +43,6 @@ export const InputContainer = styled.div`
     top: 4px;
     left: 6px;
   }
-  ,
   .inputTextContainer {
     position: relative;
   }
