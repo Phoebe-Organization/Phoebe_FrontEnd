@@ -11,6 +11,7 @@ import LocationIcon from '../../../assets/icons/location.svg';
 import Button from '../../ButtonComponents/Button.component';
 import { ButtonSizes } from '../../ButtonComponents/ButtonSizes';
 import { ButtonStyles } from '../../ButtonComponents/ButtonStyles';
+import { FaUsers } from 'react-icons/fa';
 
 interface EventCardProps {
   img?: string;
@@ -19,6 +20,7 @@ interface EventCardProps {
   address?: string;
   title?: string;
   distance?: number;
+  attendees?: number;
 }
 
 export const EventCard = ({
@@ -28,6 +30,7 @@ export const EventCard = ({
   address = '34 West 57th Street, PH',
   title = 'Lincoln Park',
   distance = 9.8,
+  attendees = 1,
 }: EventCardProps) => {
   return (
     <div style={{ position: 'relative', margin: '0px 10px' }}>
@@ -35,7 +38,12 @@ export const EventCard = ({
       <Card $imgSrc={img}>
         <CardSubContentContainer>
           <CardSubContent>
-            <h4>whatagottapitusBerry?</h4>
+            <div className='attending'>
+              <FaUsers />
+              <p>
+                <span>&#40;{attendees}&#41;</span> Attendees
+              </p>
+            </div>
             <p>What?</p>
           </CardSubContent>
         </CardSubContentContainer>

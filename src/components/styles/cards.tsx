@@ -60,18 +60,30 @@ export const CardSubContentContainer = styled.div`
 export const CardSubContent = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-end;
   height: 100%;
   color: #ffffff;
+  padding: 20px;
   * {
+    margin: 0;
     text-align: left;
-    margin: 7px 15px;
   }
   h4 {
     font-size: 16px;
   }
   p {
     font-size: 14px;
+  }
+  .attending {
+    display: flex;
+    align-items: center;
+    p {
+      text-align: left;
+      margin-left: 4px;
+      span {
+        color: #fcffa4;
+      }
+    }
   }
 `;
 
