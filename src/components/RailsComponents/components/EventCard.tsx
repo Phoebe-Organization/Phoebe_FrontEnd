@@ -44,7 +44,7 @@ export const EventCard = ({
 }: EventCardProps) => {
   return (
     <div style={{ position: 'relative', margin: '0px 10px' }}>
-      <CardImageBlur />
+      {/* <CardImageBlur /> */}
       <Card $imgSrc={img}>
         <CardSubContentContainer>
           <CardSubContent>

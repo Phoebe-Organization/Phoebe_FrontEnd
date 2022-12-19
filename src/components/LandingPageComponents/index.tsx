@@ -32,6 +32,8 @@ const LandingPage = () => {
     <EventCard img={Img.Store3} key='card3' hostImage={Person} hostName='Natalié' />,
     <EventCard img={Img.Store4} key='card4' hostImage={Person} hostName='Natalié' />,
     <EventCard img={Img.Store5} key='card5' hostImage={Person} hostName='Natalié' />,
+    <EventCard img={Img.Store5} key='card6' hostImage={Person} hostName='Natalié' />,
+    <EventCard img={Img.Store5} key='card7' hostImage={Person} hostName='Natalié' />,
   ];
 
   useEffect(() => {
