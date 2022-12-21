@@ -85,6 +85,7 @@ const Signin = ({ showNav }: SigninProps) => {
             inputChange={inputChange}
             inputName={'email'}
             val={signInVals.email}
+            icon={<FcGoogle />}
           >
             Enter your Email or Username
           </InputField>

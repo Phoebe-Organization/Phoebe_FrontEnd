@@ -1,5 +1,6 @@
-export enum ButtonSizes{
-    LARGE = "large",
-    MEDIUM = "medium",
-    SMALL = "small"
+export enum ButtonSizes {
+  LARGE = 'large',
+  MEDIUM = 'medium',
+  SMALL = 'small',
+  XSMALL = 'xsmall',
 }

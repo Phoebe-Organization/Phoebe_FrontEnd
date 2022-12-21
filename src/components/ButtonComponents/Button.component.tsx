@@ -4,15 +4,20 @@ import { ButtonStyles } from './ButtonStyles';
 import { StyledButton } from '../styles/button';
 
 export interface ButtonProps {
-  action: () => void;
-  btnSize: ButtonSizes;
-  btnStyle: ButtonStyles;
-  disabled: boolean;
-  children: string;
+  action?: () => void;
+  btnSize?: ButtonSizes;
+  btnStyle?: ButtonStyles;
+  disabled?: boolean;
+  children?: string;
 }
 
-const Button = (btnProps: ButtonProps) => {
-  const { action, btnSize, btnStyle, disabled, children } = btnProps;
+const Button = ({
+  action = () => null,
+  btnSize = ButtonSizes.MEDIUM,
+  btnStyle = ButtonStyles.PRIMARY,
+  disabled = false,
+  children,
+}: ButtonProps) => {
   return (
     <StyledButton
       $btnSize={btnSize}

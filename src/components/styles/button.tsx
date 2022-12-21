@@ -7,39 +7,63 @@ interface ButtonStyledComponent {
   $btnStyle: ButtonStyles;
 }
 
+const $primaryColor = 'rgba(232, 20, 218, 1)';
+// const $secondaryColor = 'rgba(151, 36, 209, 1)';
+const $secondaryColor = '#55c2da';
+
+const $primaryTextColor = '#ffffff';
+const $secondaryTextColor = '#000000';
+const $tertiaryTextColor = '#55c2da';
+
+const $sizeLarge = '350px';
+const $sizeMedium = '200px';
+const $sizeSmall = '100px';
+const $sizeXSmall = '60px';
+
 export const StyledButton = styled.button(({ $btnSize, $btnStyle }: ButtonStyledComponent) => {
   const obj: CSSObject = {};
+  obj['borderRadius'] = '4px';
   switch ($btnSize) {
     case ButtonSizes.LARGE:
-      obj['width'] = '350px';
+      obj['width'] = $sizeLarge;
       break;
     case ButtonSizes.MEDIUM:
-      obj['width'] = '100px';
+      obj['width'] = $sizeMedium;
       break;
     case ButtonSizes.SMALL:
-      obj['width'] = '50px';
+      obj['width'] = $sizeSmall;
       break;
+    case ButtonSizes.XSMALL:
+      obj['width'] = $sizeXSmall;
+      obj['height'] = '30px';
+      obj['fontSize'] = '14px';
     default:
       break;
   }
   switch ($btnStyle) {
     case ButtonStyles.SOLID:
-      (obj['color'] = '#ffffff'), (obj['backgroundColor'] = '#1a1a1a;');
+      obj['color'] = $primaryTextColor;
+      obj['background-color'] = '#1a1a1a;';
       break;
     case ButtonStyles.PRIMARY:
+      obj['color'] = $primaryTextColor;
+      obj['background-color'] = $primaryColor;
       break;
     case ButtonStyles.SECONDARY:
+      obj['color'] = $primaryTextColor;
+      obj['background-color'] = $secondaryColor;
       break;
     case ButtonStyles.TRANSPARENT:
-      (obj['border'] = '1px solid black'),
-        (obj['backgroundColor'] = 'transparent'),
-        (obj['color'] = '#000000');
+      obj['border'] = '1px solid black';
+      obj['background-color'] = 'transparent';
+      obj['color'] = $secondaryTextColor;
       break;
+    case ButtonStyles.CARD:
+      obj['color'] = $tertiaryTextColor;
+      obj['background-color'] = '#ffffff';
+      obj['borderRadius'] = '8px';
     default:
       break;
   }
-  obj['button'] = {
-    borderRadius: '4px',
-  };
   return obj;
 });

@@ -1,6 +1,12 @@
 import React from 'react';
+<<<<<<< HEAD
 import { InputContainer } from '../styles/input';
 // import './InputFieldStyling.scss';
+=======
+import { IconType } from 'react-icons';
+import { FontFamily } from '../../globals/fonts';
+import { InputContainer } from '../styles/input';
+>>>>>>> 85222de4f9aa5da32255ed3eea1eed07379ca486
 
 interface InputFieldProps {
   val: string | number | readonly string[];
@@ -8,22 +14,45 @@ interface InputFieldProps {
   inputName: string;
   children: string;
   title: string;
+  showLabel?: boolean;
+  labelFont?: FontFamily;
+  icon?: JSX.Element;
   inputChange: (e: React.FormEvent<HTMLInputElement>) => void;
 }
 
-const InputField = ({ title, val, type, inputName, children, inputChange }: InputFieldProps) => {
+const InputField = ({
+  title,
+  val,
+  type,
+  inputName,
+  children,
+  showLabel = true,
+  labelFont = FontFamily.TIMES,
+  icon,
+  inputChange,
+}: InputFieldProps) => {
+  const isIcon = icon != null || icon != undefined;
+  console.log(isIcon);
   return (
     <InputContainer>
-      <label htmlFor={inputName}>{title}</label>
-      <input
-        value={val}
-        type={type}
-        name={inputName}
-        autoComplete='off'
-        onChange={inputChange}
-        placeholder={children}
-        required
-      />
+      {showLabel ? (
+        <label className={labelFont} htmlFor={inputName}>
+          {title}
+        </label>
+      ) : null}
+      <div className='inputTextContainer'>
+        {isIcon ? <span className='icon'>{icon}</span> : null}
+        <input
+          className={isIcon ? 'inputIcon' : ''}
+          value={val}
+          type={type}
+          name={inputName}
+          autoComplete='off'
+          onChange={inputChange}
+          placeholder={children}
+          required
+        />
+      </div>
     </InputContainer>
   );
 };

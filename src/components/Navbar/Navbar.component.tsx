@@ -1,8 +1,8 @@
 import React, { Fragment } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
-// import Container from 'react-bootstrap/Container';
-// import Nav from 'react-bootstrap/Nav';
-// import Navbar from 'react-bootstrap/Navbar';
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
 import './NavbarStyling/NavbarStyling.scss';
 import Button from '../ButtonComponents/Button.component';
 import { ButtonProps } from '../ButtonComponents/Button.component';
@@ -32,7 +32,7 @@ const Navigation = () => {
   return (
     <Fragment>
       <div className='navbar'>
-        {/* <Navbar bg='dark' variant='dark'>
+        <Navbar bg='dark' variant='dark'>
           <Container>
             <Navbar.Brand>Phoebe</Navbar.Brand>
             <Nav className='me-auto'>
@@ -52,7 +52,7 @@ const Navigation = () => {
               {isAuthenticated ? <Button {...signInBtn} /> : null}
             </Nav>
           </Container>
-        </Navbar> */}
+        </Navbar>
       </div>
     </Fragment>
   );
