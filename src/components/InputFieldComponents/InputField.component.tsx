@@ -13,6 +13,7 @@ interface InputFieldProps {
   labelFont?: FontFamily;
   icon?: JSX.Element;
   inputChange: (e: React.FormEvent<HTMLInputElement>) => void;
+  inputWidth?: number;
 }
 
 const InputField = ({
@@ -25,11 +26,12 @@ const InputField = ({
   labelFont = FontFamily.TIMES,
   icon,
   inputChange,
+  inputWidth = 350,
 }: InputFieldProps) => {
   const isIcon = icon != null || icon != undefined;
   console.log(isIcon);
   return (
-    <InputContainer>
+    <InputContainer style={{ width: `${inputWidth}px` }}>
       {showLabel ? (
         <label className={labelFont} htmlFor={inputName}>
           {title}

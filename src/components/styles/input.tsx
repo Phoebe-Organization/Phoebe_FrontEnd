@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 export const InputContainer = styled.div`
   position: relative;
-  width: 350px;
   margin: auto;
   display: flex;
   flex-direction: column;
@@ -14,8 +13,8 @@ export const InputContainer = styled.div`
     padding-left: 15px;
     position: relative;
     width: 100%;
-    height: 35px;
-    border-radius: 2px;
+    height: 40px;
+    border-radius: 6px;
     font-size: 16px;
     font-family: Roboto, sans-serif;
     &:focus {
@@ -35,13 +34,13 @@ export const InputContainer = styled.div`
     line-height: 1.3em;
   }
   .inputIcon {
-    padding-left: 25px;
+    padding-left: 30px;
   }
   .icon {
     position: absolute;
     z-index: 2;
-    top: 4px;
-    left: 6px;
+    top: 6px;
+    left: 8px;
   }
   .inputTextContainer {
     position: relative;

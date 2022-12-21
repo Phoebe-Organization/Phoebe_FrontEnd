@@ -4,6 +4,7 @@ export const RailTitle = styled.h2`
   margin: 0;
   margin-bottom: 10px;
   text-align: left;
+  font-weight: 700;
 `;
 
 export const RailParentContainer = styled.div`

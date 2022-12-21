@@ -10,6 +10,7 @@ import { Search } from './components/Search.component';
 import * as Img from '../../assets/places';
 import { FaGolfBall } from 'react-icons/fa';
 import Person from '../../assets/people/profileImage.jpg';
+import { Interest } from './components/Interests.component';
 
 interface LandingPageProps {
   showNav: Dispatch<SetStateAction<boolean>>;
@@ -45,8 +46,9 @@ const LandingPage = () => {
   return (
     <>
       <Hero />
+      <Interest />
       <Search />
-      <Rail cards={cards}>Popular Users</Rail>
+      <Rail cards={cards}>New Events</Rail>
       <DownloadApp />
       <Footer />
     </>

@@ -7,7 +7,7 @@ interface ButtonStyledComponent {
   $btnStyle: ButtonStyles;
 }
 
-const $primaryColor = 'rgba(232, 20, 218, 1)';
+const $primaryColor = '#e814da';
 // const $secondaryColor = 'rgba(151, 36, 209, 1)';
 const $secondaryColor = '#55c2da';
 
@@ -37,6 +37,10 @@ export const StyledButton = styled.button(({ $btnSize, $btnStyle }: ButtonStyled
       obj['width'] = $sizeXSmall;
       obj['height'] = '30px';
       obj['fontSize'] = '14px';
+      break;
+    case ButtonSizes.FILL:
+      obj['width'] = '100%';
+      break;
     default:
       break;
   }
