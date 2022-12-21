@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
@@ -9,8 +9,10 @@ import { ButtonProps } from '../ButtonComponents/Button.component';
 import { ButtonSizes } from '../ButtonComponents/ButtonSizes';
 import { ButtonStyles } from '../ButtonComponents/ButtonStyles';
 import { getAuthToken } from '../../utils/getAuthToken';
+import { Paths } from '../../globals/paths';
 
 const Navigation = () => {
+  const location = useLocation();
   const navigate = useNavigate();
   const isAuthenticated = getAuthToken();
 
@@ -57,24 +59,3 @@ const Navigation = () => {
 };
 
 export default Navigation;
-
-{
-  /* <Navbar bg='dark' variant='dark'>
-            <Container>
-               <Link to='/'>
-                  <Navbar.Brand>Phoebe</Navbar.Brand>
-               </Link>
-               <Nav className='me-auto'>
-                  <Link to='/'>
-                     <Nav.Link>Home</Nav.Link>
-                  </Link>
-                  <Link to='/signin'>
-                     <Nav.Link>Sign In</Nav.Link>
-                  </Link>
-                  <Link to='/about'>
-                     <Nav.Link>About</Nav.Link>
-                  </Link>
-               </Nav>
-            </Container>
-         </Navbar> */
-}
