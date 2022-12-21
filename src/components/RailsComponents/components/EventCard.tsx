@@ -14,7 +14,6 @@ import { ButtonSizes } from '../../ButtonComponents/ButtonSizes';
 import { ButtonStyles } from '../../ButtonComponents/ButtonStyles';
 import { FaUsers } from 'react-icons/fa';
 import { FiClock } from 'react-icons/fi';
-import moment from 'moment';
 import { formatDate } from '../../../globals/formatDate';
 
 interface EventCardProps {
@@ -38,7 +37,7 @@ export const EventCard = ({
   title = 'Lincoln Park',
   distance = 9.8,
   attendees = 1,
-  start = 8,
+  start = Date.now(),
   hostImage,
   hostName,
 }: EventCardProps) => {
@@ -59,7 +58,7 @@ export const EventCard = ({
               </p>
             </div>
             <p className='time'>
-              <FiClock /> {formatDate(Date.now())}
+              <FiClock /> {formatDate(start)}
             </p>
           </CardSubContent>
         </CardSubContentContainer>

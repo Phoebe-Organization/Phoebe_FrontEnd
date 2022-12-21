@@ -45,9 +45,9 @@ const LandingPage = () => {
   return (
     <>
       <Hero />
+      <Search />
       <Rail cards={cards}>Popular Users</Rail>
       <DownloadApp />
-      <Search />
       <Footer />
     </>
   );

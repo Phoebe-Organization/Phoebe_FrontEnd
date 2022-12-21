@@ -17,7 +17,12 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   a {
+    font-weight: normal;
+    color: #55c2da;
     text-decoration: none;
+    &:hover{
+      text-decoration: none;
+    }
   }
 
   button {
