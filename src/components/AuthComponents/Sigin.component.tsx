@@ -2,7 +2,7 @@ import React, { Dispatch, SetStateAction, useEffect, useState } from 'react';
 import Button, { ButtonProps } from '../ButtonComponents/Button.component';
 import { ButtonSizes } from '../ButtonComponents/ButtonSizes';
 import { ButtonStyles } from '../ButtonComponents/ButtonStyles';
-import { useSignIn } from './AuthHooks';
+import { useSignIn } from '../../hooks/AuthHooks';
 import Spinner from 'react-bootstrap/Spinner';
 import 'bootstrap/dist/css/bootstrap.css';
 import { Link, useNavigate } from 'react-router-dom';

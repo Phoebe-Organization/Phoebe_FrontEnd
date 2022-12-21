@@ -5,7 +5,7 @@ import { FcGoogle } from 'react-icons/fc';
 import { Link, useNavigate } from 'react-router-dom';
 import Button, { ButtonProps } from '../ButtonComponents/Button.component';
 import InputField from '../InputFieldComponents/InputField.component';
-import { useSignUp } from './AuthHooks';
+import { useSignUp } from '../../hooks/AuthHooks';
 import signUpVideo from '../../assets/signup-compressed.mp4';
 import { ButtonSizes } from '../ButtonComponents/ButtonSizes';
 import { ButtonStyles } from '../ButtonComponents/ButtonStyles';

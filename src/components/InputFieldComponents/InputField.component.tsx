@@ -1,18 +1,13 @@
 import React from 'react';
-<<<<<<< HEAD
-import { InputContainer } from '../styles/input';
-// import './InputFieldStyling.scss';
-=======
 import { IconType } from 'react-icons';
 import { FontFamily } from '../../globals/fonts';
 import { InputContainer } from '../styles/input';
->>>>>>> 85222de4f9aa5da32255ed3eea1eed07379ca486
 
 interface InputFieldProps {
   val: string | number | readonly string[];
   type: React.HTMLInputTypeAttribute | undefined;
   inputName: string;
-  children: string;
+  children?: string;
   title: string;
   showLabel?: boolean;
   labelFont?: FontFamily;
