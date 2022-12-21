@@ -1,5 +1,6 @@
 import React from 'react';
-import './InputFieldStyling.scss';
+import { InputContainer } from '../styles/input';
+// import './InputFieldStyling.scss';
 
 interface InputFieldProps {
   val: string | number | readonly string[];
@@ -11,14 +12,10 @@ interface InputFieldProps {
 }
 
 const InputField = ({ title, val, type, inputName, children, inputChange }: InputFieldProps) => {
-  //   const { type, inputName, children, inputChange } = props;
   return (
-    <div className='input-container'>
-      <label htmlFor={inputName} className='label-name'>
-        {title}
-      </label>
+    <InputContainer>
+      <label htmlFor={inputName}>{title}</label>
       <input
-        className='input-field'
         value={val}
         type={type}
         name={inputName}
@@ -27,7 +24,7 @@ const InputField = ({ title, val, type, inputName, children, inputChange }: Inpu
         placeholder={children}
         required
       />
-    </div>
+    </InputContainer>
   );
 };
 

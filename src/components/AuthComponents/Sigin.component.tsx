@@ -2,7 +2,6 @@ import React, { Dispatch, SetStateAction, useEffect, useState } from 'react';
 import Button, { ButtonProps } from '../ButtonComponents/Button.component';
 import { ButtonSizes } from '../ButtonComponents/ButtonSizes';
 import { ButtonStyles } from '../ButtonComponents/ButtonStyles';
-import './AuthComponentsStyling/Auth.scss';
 import { useSignIn } from './AuthHooks';
 import Spinner from 'react-bootstrap/Spinner';
 import 'bootstrap/dist/css/bootstrap.css';
@@ -11,6 +10,20 @@ import loginVideo from '../../assets/login-sunset.mp4';
 import InputField from '../InputFieldComponents/InputField.component';
 import { FcGoogle } from 'react-icons/fc';
 import { FaFacebook, FaApple } from 'react-icons/fa';
+import {
+  AuthContainer,
+  AuthVideoContainer,
+  ButtonGroup,
+  ChangeAuthMethod,
+  ContinueWithButton,
+  ErrorMessage,
+  SigninContentContainer,
+  SigninField,
+  SubTitle,
+  Title,
+  TitleContainer,
+  Video,
+} from '../styles/auth';
 
 interface SigninProps {
   showNav: Dispatch<SetStateAction<boolean>>;
@@ -56,18 +69,15 @@ const Signin = ({ showNav }: SigninProps) => {
   }, [signInVals]);
 
   return (
-    <div className='Auth'>
-      <div className='signin-field'>
-        {/* <button className='back-button' onClick={() => navigate(-1)}>
-          Back
-        </button> */}
-        <div className='login-content-container'>
-          <div className='title'>
-            <h1 className='login-title'>Welcome Back!</h1>
-            <h4 className='login-subtitle'>
-              Get ready to have a good time with <span className='special'>Phoebe</span>
-            </h4>
-          </div>
+    <AuthContainer>
+      <SigninField>
+        <SigninContentContainer>
+          <TitleContainer>
+            <Title>Welcome Back!</Title>
+            <SubTitle>
+              Get ready to have a good time with <span>Phoebe</span>
+            </SubTitle>
+          </TitleContainer>
 
           <InputField
             title={'Email or Username'}
@@ -91,49 +101,50 @@ const Signin = ({ showNav }: SigninProps) => {
           <br />
           {signInError ? (
             <>
-              <div className='error'>
+              <ErrorMessage>
                 <span>{signInErrorMessage}</span>
-              </div>
+              </ErrorMessage>
               <br />
             </>
           ) : null}
           <br />
-          <div className='button-group'>
+          <ButtonGroup>
             <Button {...signInBtn} />
-            {/* <Button {...signInBtn} /> */}
-            <button className='continue-with apple'>
+            <ContinueWithButton fontSize='24px'>
               <span>
-                <FaApple className='apple-font' />
+                <FaApple />
               </span>
               <span>Sign in with Apple</span>
-            </button>
-            <button className='continue-with google'>
+            </ContinueWithButton>
+            <ContinueWithButton fontSize='24px'>
               <span>
-                <FcGoogle className='google-font' />
+                <FcGoogle />
               </span>
               <span>Sign in with Google</span>
-            </button>
-            <button className='continue-with facebook'>
+            </ContinueWithButton>
+
+            <ContinueWithButton fontSize='24px' color='#4267b2'>
               <span>
-                <FaFacebook className='facebook-font' />
+                <FaFacebook />
               </span>
               <span>Sign in with Facebook</span>
-            </button>
-          </div>
+            </ContinueWithButton>
+          </ButtonGroup>
           <br />
           {signInStatus == 'loading' ? <Spinner animation='grow' /> : <span></span>}
-        </div>
-        <div className='change-auth-method'>
+        </SigninContentContainer>
+
+        <ChangeAuthMethod>
           <p>
             Don't have an account? <Link to='/signup'>Sign Up</Link>
           </p>
-        </div>
-      </div>
+        </ChangeAuthMethod>
+      </SigninField>
 
-      <div className='auth-video-container'>
-        <video className='auth-video' src={loginVideo} loop autoPlay muted />
-      </div>
-    </div>
+      <AuthVideoContainer>
+        <Video src={loginVideo} loop autoPlay muted />
+      </AuthVideoContainer>
+    </AuthContainer>
   );
 };
 
