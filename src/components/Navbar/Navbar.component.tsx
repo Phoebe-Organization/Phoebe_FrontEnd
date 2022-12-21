@@ -1,14 +1,8 @@
 import React, { Fragment } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
-<<<<<<< HEAD
 // import Container from 'react-bootstrap/Container';
 // import Nav from 'react-bootstrap/Nav';
 // import Navbar from 'react-bootstrap/Navbar';
-=======
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
->>>>>>> bdd6157bdef8bbd6f4d6bac86b3b1c281e8622e4
 import './NavbarStyling/NavbarStyling.scss';
 import Button from '../ButtonComponents/Button.component';
 import { ButtonProps } from '../ButtonComponents/Button.component';

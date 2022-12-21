@@ -26,7 +26,6 @@ const App = () => {
   return (
     <QueryClientProvider client={queryClient}>
       <Router>
-<<<<<<< HEAD
         {/* {showNav ? <Navigation /> : null} */}
         <div className='container'>
           <div className='sideBar'>
@@ -46,24 +45,6 @@ const App = () => {
             </Routes>
           </div>
         </div>
-=======
-        {showNav ? <Navigation /> : null}
-        {/* <div className='app-container'> */}
-        {/* <div className='sideBar'>
-            <Sidebar />
-          </div> */}
-        <Routes>
-          <Route path='/' element={<LandingPage />} />
-          <Route path='/' element={<AuthRouting />}>
-            <Route path={Paths.SIGNIN} element={<Signin showNav={setShowNav} />} />
-            <Route path={Paths.SIGNUP} element={<Signup showNav={setShowNav} />} />
-          </Route>
-          <Route path={Paths.HOME} element={<PrivateRoute />}>
-            <Route path={Paths.HOME} element={<Dashboard />} />
-          </Route>
-          <Route path={Paths.ABOUT} element={<AboutSection />} />
-        </Routes>
->>>>>>> bdd6157bdef8bbd6f4d6bac86b3b1c281e8622e4
       </Router>
     </QueryClientProvider>
   );
