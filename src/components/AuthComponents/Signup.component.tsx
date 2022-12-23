@@ -168,7 +168,7 @@ const Signup = ({ showNav }: RegisterProps) => {
                   checked={acceptTerms}
                   onChange={() => setAcceptTerms((terms) => !terms)}
                 />
-                Accept Terms and Conditions
+                &nbsp;Accept Terms and Conditions
               </label>
             </div>
           </FormInputContainer>
