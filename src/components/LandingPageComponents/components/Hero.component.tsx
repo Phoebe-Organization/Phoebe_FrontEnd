@@ -4,6 +4,8 @@ import { ButtonSizes } from '../../ButtonComponents/ButtonSizes';
 import { ButtonStyles } from '../../ButtonComponents/ButtonStyles';
 import { HeroContainer, HeroContent, HeroImage } from '../../styles/landingpage';
 import HeroImg from '../../../assets/relaxation.svg';
+import { useNavigate } from 'react-router-dom';
+import { Paths } from '../../../globals/paths';
 
 const Header = () => {
   return (
@@ -26,13 +28,18 @@ const SubHeader = () => {
 };
 
 export const Hero = () => {
+  const navigate = useNavigate();
   return (
     <>
       <HeroContainer>
         <HeroContent>
           <Header />
           <SubHeader />
-          <Button btnStyle={ButtonStyles.SECONDARY} btnSize={ButtonSizes.LARGE}>
+          <Button
+            btnStyle={ButtonStyles.SECONDARY}
+            btnSize={ButtonSizes.LARGE}
+            action={() => navigate(Paths.SIGNUP)}
+          >
             Get Started!
           </Button>
         </HeroContent>

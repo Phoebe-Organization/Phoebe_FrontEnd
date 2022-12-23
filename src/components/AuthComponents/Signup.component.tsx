@@ -106,6 +106,7 @@ const Signup = ({ showNav }: RegisterProps) => {
               inputChange={inputChange}
               inputName={'email'}
               val={signUpVals.email}
+              isValid={!signUpErrorMessage.includes('email')}
             >
               Email
             </InputField>
@@ -113,8 +114,9 @@ const Signup = ({ showNav }: RegisterProps) => {
               title={'Username'}
               type={'text'}
               inputChange={inputChange}
-              inputName={'username'}
-              val={signUpVals.username}
+              inputName={'userName'}
+              val={signUpVals.userName}
+              isValid={!signUpErrorMessage.includes('userName')}
             >
               Username
             </InputField>
@@ -124,6 +126,7 @@ const Signup = ({ showNav }: RegisterProps) => {
               inputChange={inputChange}
               inputName={'firstName'}
               val={signUpVals.firstName}
+              isValid={!signUpErrorMessage.includes('firstName')}
             >
               First Name
             </InputField>
@@ -133,6 +136,7 @@ const Signup = ({ showNav }: RegisterProps) => {
               inputChange={inputChange}
               inputName={'lastName'}
               val={signUpVals.lastName}
+              isValid={!signUpErrorMessage.includes('lastName')}
             >
               Last Name
             </InputField>
@@ -142,6 +146,7 @@ const Signup = ({ showNav }: RegisterProps) => {
               inputChange={inputChange}
               inputName={'password'}
               val={signUpVals.password}
+              isValid={!signUpErrorMessage.includes('password')}
             >
               Password
             </InputField>
@@ -151,6 +156,7 @@ const Signup = ({ showNav }: RegisterProps) => {
               inputChange={inputChange}
               inputName={'cpassword'}
               val={signUpVals.cpassword}
+              isValid={!signUpErrorMessage.includes('match')}
             >
               Confirm Password
             </InputField>

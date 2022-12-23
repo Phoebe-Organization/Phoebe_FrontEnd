@@ -63,3 +63,24 @@ export const GlobalStyle = createGlobalStyle`
     font-family: Dancing Script, cursive;
   }
 `;
+
+export const FlexRowContainer = styled.div`
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+`;
+
+export const FlexColumnContainer = styled.div`
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+`;
+
+export const VerticalDivider = styled.div`
+  height: 300px;
+  width: 1px;
+  min-width: 1px;
+  background-color: #b1b1b17c;
+  margin: 0px 40px;
+`;

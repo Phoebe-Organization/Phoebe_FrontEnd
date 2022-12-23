@@ -31,6 +31,11 @@ export const InterestButtonsWrapper = styled.div`
   align-items: center;
   flex-direction: column;
   width: 500px;
+  min-width: 500px;
 `;
 
-export const InterestsContainer = styled.div``;
+export const InterestsContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;

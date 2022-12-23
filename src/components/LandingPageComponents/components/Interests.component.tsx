@@ -3,10 +3,12 @@ import { useNavigate } from 'react-router-dom';
 import Button from '../../ButtonComponents/Button.component';
 import { ButtonSizes } from '../../ButtonComponents/ButtonSizes';
 import { ButtonStyles } from '../../ButtonComponents/ButtonStyles';
+import { VerticalDivider } from '../../styles/global';
 import {
   InterestButton,
   InterestButtonContainer,
   InterestButtonsWrapper,
+  InterestsContainer,
   InterestsTitle,
 } from '../../styles/interests';
 
@@ -20,7 +22,6 @@ const InterestBtn = ({ interest, clickEvent }: InterestButtonProps) => {
 
   return (
     <InterestButton
-      key={interest}
       className={selected ? 'active' : ''}
       onClick={() => {
         clickEvent(!selected, interest);
@@ -78,22 +79,31 @@ export const Interest = () => {
   const navigate = useNavigate();
   return (
     <>
-      <InterestsTitle>What are your Interests?</InterestsTitle>
-      <InterestButtonsWrapper>
-        <InterestButtonContainer>
-          {interests.map((vals) => {
-            return <InterestBtn interest={vals} clickEvent={handleInterest} />;
-          })}
-        </InterestButtonContainer>
-        <Button
-          btnSize={ButtonSizes.FILL}
-          btnStyle={ButtonStyles.SECONDARY}
-          action={() => navigate('/')}
-          disabled={interestList.length === 0}
-        >
-          Find Your Next Step
-        </Button>
-      </InterestButtonsWrapper>
+      <InterestsTitle>What are your Hobbies?</InterestsTitle>
+      <InterestsContainer>
+        <InterestButtonsWrapper>
+          <InterestButtonContainer>
+            {interests.map((vals) => {
+              return <InterestBtn key={vals} interest={vals} clickEvent={handleInterest} />;
+            })}
+          </InterestButtonContainer>
+          <Button
+            btnSize={ButtonSizes.FILL}
+            btnStyle={ButtonStyles.SECONDARY}
+            action={() => navigate('/home')}
+            disabled={interestList.length === 0}
+          >
+            Search By Hobbies
+          </Button>
+        </InterestButtonsWrapper>
+        <VerticalDivider />
+        <div style={{ width: '500px', minWidth: '500px' }}>
+          <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsa eos deserunt corrupti
+            labore doloribus amet!
+          </p>
+        </div>
+      </InterestsContainer>
     </>
   );
 };

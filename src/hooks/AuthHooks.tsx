@@ -119,13 +119,13 @@ const useSignUp = () => {
     firstName: '',
     lastName: '',
     email: '',
-    username: '',
+    userName: '',
     password: '',
     cpassword: '',
   };
 
   const [signUpValues, setSignUpValues] = useState(signUpInitialValues);
-  const accountSignInEndpoint: string = 'http://localhost:3000/v1/auth/login';
+  const accountSignInEndpoint: string = 'http://localhost:3000/v1/auth/register';
   const navigate = useNavigate();
   const handleSignUpInputChange = (e: React.FormEvent<HTMLInputElement>) => {
     const { name, value } = e.currentTarget;
@@ -140,7 +140,7 @@ const useSignUp = () => {
     setErrorMessage(e.message);
   };
   const { mutate, data, status, isError } = useMutation({
-    mutationFn: (userCreds: UserCredentials) => {
+    mutationFn: (userCreds: any) => {
       return axios.post<LoginResponse>(accountSignInEndpoint, userCreds);
     },
     onError: (error: any, variables, context) => {
@@ -154,7 +154,12 @@ const useSignUp = () => {
   });
 
   const signUpUser = () => {
-    mutate(signUpValues);
+    if (signUpValues.cpassword !== signUpValues.password) {
+      setErrorMessage('Passwords do not match');
+      return;
+    }
+    const { firstName, userName, email, password, lastName } = signUpValues;
+    mutate({ firstName, userName, email, password, lastName });
   };
   return {
     signUp: signUpUser,
