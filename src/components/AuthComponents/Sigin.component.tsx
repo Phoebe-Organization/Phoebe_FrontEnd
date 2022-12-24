@@ -87,6 +87,8 @@ const Signin = () => {
             </>
           ) : null}
           <br />
+          {signInStatus == 'loading' ? <Spinner animation='grow' /> : <span></span>}
+          <br />
           <ButtonGroup>
             <Button {...signInBtn} />
             <ContinueWithButton fontSize='24px'>
@@ -109,8 +111,6 @@ const Signin = () => {
               <span>Sign in with Facebook</span>
             </ContinueWithButton>
           </ButtonGroup>
-          <br />
-          {signInStatus == 'loading' ? <Spinner animation='grow' /> : <span></span>}
         </SigninContentContainer>
 
         <ChangeAuthMethod>
