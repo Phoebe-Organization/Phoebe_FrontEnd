@@ -1,8 +1,9 @@
 import styled from 'styled-components';
 
 export const InterestsTitle = styled.h1`
-  margin: 0;
   font-weight: 700;
+  display: flex;
+  justify-content: center;
 `;
 
 export const InterestButton = styled.div`

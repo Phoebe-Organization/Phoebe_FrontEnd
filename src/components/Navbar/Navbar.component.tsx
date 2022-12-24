@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useContext, useEffect, useState } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
@@ -8,18 +8,21 @@ import Button from '../ButtonComponents/Button.component';
 import { ButtonProps } from '../ButtonComponents/Button.component';
 import { ButtonSizes } from '../ButtonComponents/ButtonSizes';
 import { ButtonStyles } from '../ButtonComponents/ButtonStyles';
-import { getAuthToken } from '../../utils/getAuthToken';
+import { AuthContext } from '../../contexts/AuthContext';
 import { Paths } from '../../globals/paths';
 
 const Navigation = () => {
-  const location = useLocation();
-  const navigate = useNavigate();
-  const isAuthenticated = getAuthToken();
-
+  const { isAuthenticated, setIsAuthenticated } = useContext(AuthContext);
   const signOut = () => {
     localStorage.removeItem('token');
-    navigate('/signin');
+    setIsAuthenticated(false);
   };
+  const location = useLocation();
+  const [showNavbar, setShowNavbar] = useState<boolean>(true);
+
+  useEffect(() => {
+    setShowNavbar(location.pathname !== Paths.SIGNIN && location.pathname !== Paths.SIGNUP);
+  }, [location]);
 
   const signInBtn: ButtonProps = {
     btnSize: ButtonSizes.SMALL,
@@ -29,7 +32,7 @@ const Navigation = () => {
     children: 'Sign Out',
   };
 
-  return (
+  return showNavbar ? (
     <Fragment>
       <div className='navbar'>
         <Navbar bg='dark' variant='dark'>
@@ -48,14 +51,17 @@ const Navigation = () => {
                 <Link to='/signin' className='navLink'>
                   Sign In
                 </Link>
-              ) : null}
-              {isAuthenticated ? <Button {...signInBtn} /> : null}
+              ) : (
+                <Link to='/signin' className='navLink'>
+                  Sign Out
+                </Link>
+              )}
             </Nav>
           </Container>
         </Navbar>
       </div>
     </Fragment>
-  );
+  ) : null;
 };
 
 export default Navigation;

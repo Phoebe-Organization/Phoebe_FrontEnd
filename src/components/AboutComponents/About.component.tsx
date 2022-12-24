@@ -4,7 +4,7 @@ interface AboutSectionProps {
   showNav: Dispatch<SetStateAction<boolean>>;
 }
 
-const AboutSection = () => {
+const About = () => {
   //   useEffect(() => {
   //     showNav(true);
   //   }, []);
@@ -16,4 +16,4 @@ const AboutSection = () => {
   );
 };
 
-export default AboutSection;
+export default About;

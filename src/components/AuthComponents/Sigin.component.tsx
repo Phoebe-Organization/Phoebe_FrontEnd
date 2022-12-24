@@ -1,4 +1,3 @@
-import React, { Dispatch, SetStateAction, useEffect, useState } from 'react';
 import Button, { ButtonProps } from '../ButtonComponents/Button.component';
 import { ButtonSizes } from '../ButtonComponents/ButtonSizes';
 import { ButtonStyles } from '../ButtonComponents/ButtonStyles';
@@ -9,6 +8,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import loginVideo from '../../assets/login-sunset.mp4';
 import InputField from '../InputFieldComponents/InputField.component';
 import { FcGoogle } from 'react-icons/fc';
+import { AiOutlineUser, AiOutlineUnlock } from 'react-icons/ai';
 import { FaFacebook, FaApple } from 'react-icons/fa';
 import {
   AuthContainer,
@@ -24,12 +24,9 @@ import {
   TitleContainer,
   Video,
 } from '../styles/auth';
+import { Paths } from '../../globals/paths';
 
-interface SigninProps {
-  showNav: Dispatch<SetStateAction<boolean>>;
-}
-
-const Signin = ({ showNav }: SigninProps) => {
+const Signin = () => {
   const {
     signIn,
     signInResponse,
@@ -48,26 +45,6 @@ const Signin = ({ showNav }: SigninProps) => {
     children: 'Sign In',
   };
 
-  let navigate = useNavigate();
-  const continueBtn: ButtonProps = {
-    btnSize: ButtonSizes.LARGE,
-    btnStyle: ButtonStyles.PRIMARY,
-    disabled: false,
-    action: () => {
-      console.log('Navigating');
-      navigate('/');
-    },
-    children: 'Continue',
-  };
-
-  useEffect(() => {
-    showNav(false);
-
-    return () => {
-      showNav(true);
-    };
-  }, [signInVals]);
-
   return (
     <AuthContainer>
       <SigninField>
@@ -85,7 +62,7 @@ const Signin = ({ showNav }: SigninProps) => {
             inputChange={inputChange}
             inputName={'email'}
             val={signInVals.email}
-            icon={<FcGoogle />}
+            icon={<AiOutlineUser />}
           >
             Enter your Email or Username
           </InputField>
@@ -96,6 +73,7 @@ const Signin = ({ showNav }: SigninProps) => {
             inputChange={inputChange}
             inputName={'password'}
             val={signInVals.password}
+            icon={<AiOutlineUnlock />}
           >
             Password
           </InputField>
@@ -137,7 +115,7 @@ const Signin = ({ showNav }: SigninProps) => {
 
         <ChangeAuthMethod>
           <p>
-            Don't have an account? <Link to='/signup'>Sign Up</Link>
+            Don't have an account? <Link to={Paths.SIGNUP}>Sign Up</Link>
           </p>
         </ChangeAuthMethod>
       </SigninField>

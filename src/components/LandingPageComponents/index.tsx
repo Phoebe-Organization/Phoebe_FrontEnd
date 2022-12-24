@@ -37,12 +37,6 @@ const LandingPage = () => {
     <EventCard img={Img.Store5} key='card7' hostImage={Person} hostName='Natalié' />,
   ];
 
-  useEffect(() => {
-    if (isAuthenticated != null) {
-      navigation('/home');
-    }
-  }, []);
-
   return (
     <>
       <Hero />

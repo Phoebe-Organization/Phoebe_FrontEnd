@@ -26,11 +26,7 @@ import {
   Video,
 } from '../styles/auth';
 
-interface RegisterProps {
-  showNav: Dispatch<SetStateAction<boolean>>;
-}
-
-const Signup = ({ showNav }: RegisterProps) => {
+const Signup = () => {
   const {
     signUp,
     signUpResponse,
@@ -50,13 +46,6 @@ const Signup = ({ showNav }: RegisterProps) => {
     action: () => signUp(),
     children: 'Sign Up',
   };
-
-  useEffect(() => {
-    showNav(false);
-    return () => {
-      showNav(true);
-    };
-  }, []);
 
   return (
     <AuthContainer>

@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { useMutation, useQuery } from 'react-query';
 import setAxiosAuthToken from '../utils/setAxiosAuthToken';
 import axios from 'axios';
 import { saveAuthToken } from '../utils/saveAuthToken';
 import { useNavigate } from 'react-router-dom';
+import { AuthContext } from '../contexts/AuthContext';
 
 interface UserCredentials {
   email: string;
@@ -67,6 +68,8 @@ const useSignIn = () => {
   const [signInValues, setSignInValues] = useState(signInInitialValues);
   const [errorMessage, setErrorMessage] = useState('');
 
+  const { setIsAuthenticated } = useContext(AuthContext);
+
   const handleSignInInputChange = (e: React.FormEvent<HTMLInputElement>) => {
     const { name, value } = e.currentTarget;
     setSignInValues({
@@ -88,10 +91,12 @@ const useSignIn = () => {
     },
     onError: (error: any, variables, context) => {
       errorHandler(error.response.data);
+      setIsAuthenticated(false);
     },
     onSuccess: (data, variables, context) => {
       console.log(data, variables, context);
       saveAuthToken(data.data.tokens.access.token);
+      setIsAuthenticated(true);
       navigate('/home');
     },
   });

@@ -52,6 +52,7 @@ export const AuthVideoContainer = styled.div`
 export const TitleContainer = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
   margin: 20px 0;
 `;
 
@@ -163,6 +164,9 @@ export const TermsAndConditions = styled.div`
 `;
 
 export const ChangeAuthMethod = styled.div`
-  margin-top: '1em';
-  margin-bottom: '10em';
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1em;
+  margin-bottom: 10em;
 `;
