@@ -1,12 +1,54 @@
 import styled, { keyframes, css } from 'styled-components';
 
-export const OnboardingContainer = styled.div`
+const blurAnimation = keyframes`
+  0%{
+    background-color: rgba(0, 0, 0, 0);
+    backdrop-filter: blur(1px);
+  }
+  50% {
+    background-color: rgba(0, 0, 0, 0.469);
+    backdrop-filter: blur(5px);
+  }
+  100% {
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(15px);
+  }
+`;
+
+const onboardingAnimation = keyframes`
+0%, 12.5%, 25%, 37.5%{
+  opacity: 0;
+}
+50% {
+  opacity: 0.5;
+}
+100% {
+  opacity: 1;
+}
+`;
+
+export const OnboardingBackground = styled.div`
   position: fixed;
   top: 0;
   left: 0;
   height: 100vh;
   width: 100vw;
-  background-color: #00000075;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(15px);
   z-index: 99;
-  backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: ${blurAnimation} 0.6s linear;
+`;
+
+export const OnboardingContainer = styled.div`
+  display: flex;
+  align-items: center;
+  background-color: #ffffff;
+  width: 700px;
+  height: 550px;
+  border-radius: 40px;
+  padding: 50px;
+  animation: ${onboardingAnimation} 0.8s linear;
 `;

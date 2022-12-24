@@ -10,6 +10,7 @@ import { ButtonSizes } from '../ButtonComponents/ButtonSizes';
 import { ButtonStyles } from '../ButtonComponents/ButtonStyles';
 import { AuthContext } from '../../contexts/Auth/AuthContext';
 import { Paths } from '../../globals/paths';
+import { OnboardingContext } from '../../contexts/Onboarding/OnboardingContext';
 
 const Navigation = () => {
   const { isAuthenticated, setIsAuthenticated } = useContext(AuthContext);
@@ -19,6 +20,8 @@ const Navigation = () => {
   };
   const location = useLocation();
   const [showNavbar, setShowNavbar] = useState<boolean>(true);
+
+  const { toggleOnboardModal } = useContext(OnboardingContext);
 
   useEffect(() => {
     setShowNavbar(location.pathname !== Paths.SIGNIN && location.pathname !== Paths.SIGNUP);
@@ -56,6 +59,7 @@ const Navigation = () => {
                   Sign Out
                 </Link>
               )}
+              <button onClick={() => toggleOnboardModal()}>GetMe</button>
             </Nav>
           </Container>
         </Navbar>

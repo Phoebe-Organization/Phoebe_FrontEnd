@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { OnboardingContext } from '../../contexts/Onboarding/OnboardingContext';
 import { useScrollLock } from '../../globals/scrollLock';
-import { OnboardingContainer } from '../styles/onboarding';
+import { OnboardingBackground, OnboardingContainer } from '../styles/onboarding';
 
 const Onboarding = () => {
   const { lockScroll, unlockScroll } = useScrollLock();
@@ -14,10 +14,12 @@ const Onboarding = () => {
   }
 
   return showModal ? (
-    <OnboardingContainer>
-      <h1>OnBoarding Page</h1>
-      <button onClick={() => toggleOnboardModal()}>UNlock Scroll</button>
-    </OnboardingContainer>
+    <OnboardingBackground>
+      <OnboardingContainer>
+        <h1>OnBoarding Page</h1>
+        <button onClick={() => toggleOnboardModal()}>UNlock Scroll</button>
+      </OnboardingContainer>
+    </OnboardingBackground>
   ) : null;
 };
 
