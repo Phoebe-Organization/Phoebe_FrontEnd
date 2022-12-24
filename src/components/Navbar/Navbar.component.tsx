@@ -8,7 +8,7 @@ import Button from '../ButtonComponents/Button.component';
 import { ButtonProps } from '../ButtonComponents/Button.component';
 import { ButtonSizes } from '../ButtonComponents/ButtonSizes';
 import { ButtonStyles } from '../ButtonComponents/ButtonStyles';
-import { AuthContext } from '../../contexts/AuthContext';
+import { AuthContext } from '../../contexts/Auth/AuthContext';
 import { Paths } from '../../globals/paths';
 
 const Navigation = () => {

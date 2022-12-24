@@ -1,6 +1,6 @@
 import React, { Dispatch, SetStateAction, useContext, Suspense, lazy } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import { AuthContext } from './contexts/AuthContext';
+import { AuthContext } from './contexts/Auth/AuthContext';
 import { ProtectedRoute, ProtectedRouteProps } from './Routing/ProtectedRoute';
 import { Paths } from './globals/paths';
 

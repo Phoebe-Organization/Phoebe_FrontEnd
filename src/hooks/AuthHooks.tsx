@@ -4,7 +4,7 @@ import setAxiosAuthToken from '../utils/setAxiosAuthToken';
 import axios from 'axios';
 import { saveAuthToken } from '../utils/saveAuthToken';
 import { useNavigate } from 'react-router-dom';
-import { AuthContext } from '../contexts/AuthContext';
+import { AuthContext } from '../contexts/Auth/AuthContext';
 
 interface UserCredentials {
   email: string;

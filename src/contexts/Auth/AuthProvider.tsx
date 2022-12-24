@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
-import { Paths } from '../globals/paths';
-import { getAuthToken } from '../utils/getAuthToken';
-import setAxiosAuthToken from '../utils/setAxiosAuthToken';
+import { Paths } from '../../globals/paths';
+import { getAuthToken } from '../../utils/getAuthToken';
+import setAxiosAuthToken from '../../utils/setAxiosAuthToken';
 import { AuthContext } from './AuthContext';
 
 export const AuthProvider = (props: any) => {

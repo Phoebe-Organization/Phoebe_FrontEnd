@@ -1,5 +1,5 @@
-import { createContext, useContext } from 'react';
-export type AuthContent = {
+import { createContext } from 'react';
+export type AuthContext = {
   isAuthenticated: boolean | undefined;
   redirectAuthPath: string | undefined;
   redirectPath: string | undefined;
@@ -7,7 +7,7 @@ export type AuthContent = {
   setRedirectAuthPath: (path: string) => void;
   setRedirectPath: (path: string) => void;
 };
-export const AuthContext = createContext<AuthContent>({
+export const AuthContext = createContext<AuthContext>({
   isAuthenticated: undefined,
   redirectAuthPath: undefined,
   redirectPath: undefined,
