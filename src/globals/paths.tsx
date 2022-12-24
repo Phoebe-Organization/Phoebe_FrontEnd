@@ -3,4 +3,5 @@ export enum Paths {
   SIGNUP = '/signup',
   HOME = '/home',
   ABOUT = '/about',
+  ONBOARDING = '/onboarding',
 }
