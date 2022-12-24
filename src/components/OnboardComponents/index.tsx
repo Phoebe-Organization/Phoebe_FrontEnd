@@ -1,23 +1,22 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { OnboardingContext } from '../../contexts/Onboarding/OnboardingContext';
 import { useScrollLock } from '../../globals/scrollLock';
 import { OnboardingContainer } from '../styles/onboarding';
 
-interface OnboardingProps {
-  trigger: boolean;
-}
-
-const Onboarding = ({ trigger }: OnboardingProps) => {
+const Onboarding = () => {
   const { lockScroll, unlockScroll } = useScrollLock();
-  if (trigger) {
+  const { toggleOnboardModal, showModal } = useContext(OnboardingContext);
+
+  if (showModal) {
     lockScroll();
   } else {
     unlockScroll();
   }
 
-  return trigger ? (
+  return showModal ? (
     <OnboardingContainer>
       <h1>OnBoarding Page</h1>
-      <button>UNlock Scroll</button>
+      <button onClick={() => toggleOnboardModal()}>UNlock Scroll</button>
     </OnboardingContainer>
   ) : null;
 };

@@ -52,7 +52,7 @@ const Navigation = () => {
                   Sign In
                 </Link>
               ) : (
-                <Link to='/signin' className='navLink'>
+                <Link to='/signin' className='navLink' onClick={() => signOut()}>
                   Sign Out
                 </Link>
               )}

@@ -11,7 +11,7 @@ const App = () => {
   return (
     <QueryClientProvider client={queryClient}>
       <Router>
-        <Onboarding trigger={true} />
+        <Onboarding />
         <Navigation />
         <AppRoutes />
       </Router>

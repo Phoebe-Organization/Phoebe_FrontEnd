@@ -4,7 +4,7 @@ export type OnboardingContext = {
   isOnboarded: boolean;
   showModal: boolean;
   setIsOnboarded: (isOnboarded: boolean) => void;
-  toggleOnboardModal: (showModal: boolean) => void;
+  toggleOnboardModal: () => void;
 };
 
 export const OnboardingContext = createContext<OnboardingContext>({
