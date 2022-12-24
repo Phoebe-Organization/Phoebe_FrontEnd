@@ -5,7 +5,7 @@ import { FcGoogle } from 'react-icons/fc';
 import { Link, useNavigate } from 'react-router-dom';
 import Button, { ButtonProps } from '../ButtonComponents/Button.component';
 import InputField from '../InputFieldComponents/InputField.component';
-import { useSignUp } from './AuthHooks';
+import { useSignUp } from '../../hooks/AuthHooks';
 import signUpVideo from '../../assets/signup-compressed.mp4';
 import { ButtonSizes } from '../ButtonComponents/ButtonSizes';
 import { ButtonStyles } from '../ButtonComponents/ButtonStyles';
@@ -26,11 +26,7 @@ import {
   Video,
 } from '../styles/auth';
 
-interface RegisterProps {
-  showNav: Dispatch<SetStateAction<boolean>>;
-}
-
-const Signup = ({ showNav }: RegisterProps) => {
+const Signup = () => {
   const {
     signUp,
     signUpResponse,
@@ -50,13 +46,6 @@ const Signup = ({ showNav }: RegisterProps) => {
     action: () => signUp(),
     children: 'Sign Up',
   };
-
-  useEffect(() => {
-    showNav(false);
-    return () => {
-      showNav(true);
-    };
-  }, []);
 
   return (
     <AuthContainer>
@@ -106,6 +95,7 @@ const Signup = ({ showNav }: RegisterProps) => {
               inputChange={inputChange}
               inputName={'email'}
               val={signUpVals.email}
+              isValid={!signUpErrorMessage.includes('email')}
             >
               Email
             </InputField>
@@ -113,8 +103,9 @@ const Signup = ({ showNav }: RegisterProps) => {
               title={'Username'}
               type={'text'}
               inputChange={inputChange}
-              inputName={'username'}
-              val={signUpVals.username}
+              inputName={'userName'}
+              val={signUpVals.userName}
+              isValid={!signUpErrorMessage.includes('userName')}
             >
               Username
             </InputField>
@@ -124,6 +115,7 @@ const Signup = ({ showNav }: RegisterProps) => {
               inputChange={inputChange}
               inputName={'firstName'}
               val={signUpVals.firstName}
+              isValid={!signUpErrorMessage.includes('firstName')}
             >
               First Name
             </InputField>
@@ -133,6 +125,7 @@ const Signup = ({ showNav }: RegisterProps) => {
               inputChange={inputChange}
               inputName={'lastName'}
               val={signUpVals.lastName}
+              isValid={!signUpErrorMessage.includes('lastName')}
             >
               Last Name
             </InputField>
@@ -142,6 +135,7 @@ const Signup = ({ showNav }: RegisterProps) => {
               inputChange={inputChange}
               inputName={'password'}
               val={signUpVals.password}
+              isValid={!signUpErrorMessage.includes('password')}
             >
               Password
             </InputField>
@@ -151,6 +145,7 @@ const Signup = ({ showNav }: RegisterProps) => {
               inputChange={inputChange}
               inputName={'cpassword'}
               val={signUpVals.cpassword}
+              isValid={!signUpErrorMessage.includes('match')}
             >
               Confirm Password
             </InputField>
@@ -162,7 +157,7 @@ const Signup = ({ showNav }: RegisterProps) => {
                   checked={acceptTerms}
                   onChange={() => setAcceptTerms((terms) => !terms)}
                 />
-                Accept Terms and Conditions
+                &nbsp;Accept Terms and Conditions
               </label>
             </div>
           </FormInputContainer>
