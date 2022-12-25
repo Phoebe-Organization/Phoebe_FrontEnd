@@ -6,6 +6,9 @@ export const LocationProvider = (props: any) => {
   const [longitude, setLongitude] = useState<number>(0);
   const [latitude, setLatitude] = useState<number>(0);
   const [currentAddress, setCurrentAddress] = useState<string>('');
+  const [currentState, setCurrentState] = useState<string>('');
+  const [currentCity, setCurrentCity] = useState<string>('');
+  const [currentCountry, setCurrentCountry] = useState<string>('');
 
   const getAddressFromGeolocation = (lat: number, long: number) => {
     Geocode.setApiKey(import.meta.env.VITE_GEOLOCATION_API_KEY);
@@ -29,8 +32,11 @@ export const LocationProvider = (props: any) => {
             }
           }
         }
+        setCurrentCity(city);
+        setCurrentCountry(country);
+        setCurrentState(state);
         console.log(city, state, country);
-        console.log(address);
+        setCurrentAddress(address);
       },
       (error) => {
         console.error(error);
@@ -48,7 +54,20 @@ export const LocationProvider = (props: any) => {
 
   return (
     <LocationContext.Provider
-      value={{ longitude, setLongitude, latitude, setLatitude, currentAddress, setCurrentAddress }}
+      value={{
+        longitude,
+        setLongitude,
+        latitude,
+        setLatitude,
+        currentAddress,
+        setCurrentAddress,
+        currentCountry,
+        setCurrentCountry,
+        currentCity,
+        setCurrentCity,
+        currentState,
+        setCurrentState,
+      }}
     >
       {props.children}
     </LocationContext.Provider>
