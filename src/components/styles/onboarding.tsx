@@ -44,11 +44,27 @@ export const OnboardingBackground = styled.div`
 
 export const OnboardingContainer = styled.div`
   display: flex;
+  flex-direction: column;
   align-items: center;
+  justify-content: center;
   background-color: #ffffff;
   width: 700px;
   height: 550px;
   border-radius: 40px;
   padding: 50px;
   animation: ${onboardingAnimation} 0.8s linear;
+`;
+
+export const OnboardingStepsContainer = styled.div`
+  height: 375px;
+  width: 100%;
+  background-color: green;
+`;
+
+export const OnboardingProgressionButtonContainer = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 15px;
 `;
