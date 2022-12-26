@@ -35,7 +35,6 @@ export const LocationProvider = (props: any) => {
         setCurrentCity(city);
         setCurrentCountry(country);
         setCurrentState(state);
-        console.log(city, state, country);
         setCurrentAddress(address);
       },
       (error) => {
@@ -44,12 +43,16 @@ export const LocationProvider = (props: any) => {
     );
   };
 
-  useEffect(() => {
+  const getCurrentLocation = () => {
     navigator.geolocation.getCurrentPosition((position) => {
       setLongitude(position.coords.longitude);
       setLatitude(position.coords.latitude);
       getAddressFromGeolocation(position.coords.latitude, position.coords.longitude);
     });
+  };
+
+  useEffect(() => {
+    getCurrentLocation();
   }, []);
 
   return (
@@ -67,6 +70,7 @@ export const LocationProvider = (props: any) => {
         setCurrentCity,
         currentState,
         setCurrentState,
+        getCurrentLocation,
       }}
     >
       {props.children}

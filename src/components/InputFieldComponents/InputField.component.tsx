@@ -16,6 +16,8 @@ interface InputFieldProps {
   inputChange: (e: React.FormEvent<HTMLInputElement>) => void;
   inputWidth?: number;
   isValid?: boolean;
+  inputStyle?: React.CSSProperties;
+  dropDown?: JSX.Element;
 }
 
 const InputField = ({
@@ -30,8 +32,15 @@ const InputField = ({
   inputChange,
   inputWidth = 350,
   isValid = true,
+  inputStyle,
+  dropDown,
 }: InputFieldProps) => {
   const isIcon = icon != null || icon != undefined;
+
+  const defaultValidationStyle = isValid
+    ? undefined
+    : { backgroundColor: '#ef9a9ab2', borderColor: '#ef53509f', borderWidth: '3px' };
+  const inputStyling = { ...defaultValidationStyle, ...inputStyle };
   return (
     <InputContainer style={{ width: `${inputWidth}px` }}>
       {showLabel ? (
@@ -53,11 +62,7 @@ const InputField = ({
       <div className='inputTextContainer'>
         {isIcon ? <span className='icon'>{icon}</span> : null}
         <input
-          style={
-            isValid
-              ? undefined
-              : { backgroundColor: '#ef9a9ab2', borderColor: '#ef53509f', borderWidth: '3px' }
-          }
+          style={inputStyling}
           className={isIcon ? 'inputIcon' : ''}
           value={val}
           type={type}
@@ -67,6 +72,7 @@ const InputField = ({
           placeholder={children}
           required
         />
+        {dropDown}
       </div>
     </InputContainer>
   );

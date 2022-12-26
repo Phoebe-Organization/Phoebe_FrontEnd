@@ -13,6 +13,7 @@ export type LocationContext = {
   setCurrentState: (state: string) => void;
   setCurrentCity: (city: string) => void;
   setCurrentCountry: (country: string) => void;
+  getCurrentLocation: () => void;
 };
 
 export const LocationContext = createContext<LocationContext>({
@@ -28,4 +29,5 @@ export const LocationContext = createContext<LocationContext>({
   setCurrentState: () => {},
   setCurrentCity: () => {},
   setCurrentCountry: () => {},
+  getCurrentLocation: () => {},
 });
