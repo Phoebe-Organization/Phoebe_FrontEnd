@@ -100,25 +100,6 @@ export const GeolocationOption = styled.div`
     width: 0;
     height: 0;
   }
-  /* overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  text-align: left; */
-  /* &::after {
-    content: '';
-    display: block;
-    width: 325px;
-    height: 1px;
-    background: #e2e2e2;
-  }
-  &:last-child::after {
-    width: 0;
-    height: 0;
-  } */
 `;
 
 export const GeolocationOptionContainer = styled.div`
@@ -135,4 +116,16 @@ export const GeolocationInputContainer = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
+`;
+
+export const ProgressionBar = styled.div`
+  border-radius: 10px;
+  height: 6px;
+  background: red;
+`;
+export const ProgressionBarContainer = styled.div`
+  background: #b3b3b3;
+  height: 6px;
+  width: 200px;
+  border-radius: 10px;
 `;

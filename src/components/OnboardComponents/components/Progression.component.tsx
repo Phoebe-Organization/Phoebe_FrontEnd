@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { ProgressionBar, ProgressionBarContainer } from '../../styles/onboarding';
 
 interface OnboardingProgressionProps {
   step: number;
@@ -11,8 +12,10 @@ export const OnboardingProgression = ({ step, totalSteps }: OnboardingProgressio
   }, [step]);
 
   return (
-    <div
-      style={{ width: `${(step / totalSteps) * 200}px`, height: '6px', backgroundColor: 'blue' }}
-    ></div>
+    <>
+      <ProgressionBarContainer>
+        <ProgressionBar style={{ width: `${(step / totalSteps) * 200}px` }}></ProgressionBar>
+      </ProgressionBarContainer>
+    </>
   );
 };

@@ -13,6 +13,11 @@ import {
 import { OnboardingGeolocation } from './components/Geolocation.component';
 import { OnboardingProgression } from './components/Progression.component';
 
+const initialOnboardingData = {
+  address: '',
+  interests: [],
+};
+
 const Onboarding = () => {
   const { lockScroll, unlockScroll } = useScrollLock();
   const { toggleOnboardModal, showModal } = useContext(OnboardingContext);
@@ -24,8 +29,11 @@ const Onboarding = () => {
     unlockScroll();
   }
 
-  const steps = [<OnboardingGeolocation />];
+  const [data, setData] = useState(initialOnboardingData);
+  const [address, setAddress] = useState<string>('');
+  const [interestList, setInterestList] = useState<string[]>([]);
 
+  const steps = [<OnboardingGeolocation setData={setAddress} />];
   return showModal ? (
     <OnboardingBackground>
       <OnboardingContainer>
