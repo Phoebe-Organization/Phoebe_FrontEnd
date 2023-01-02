@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/Auth/AuthContext';
+import { OnboardingContext } from '../../contexts/Onboarding/OnboardingContext';
 import { Paths } from '../../globals/paths';
 
 export interface NavItem {
@@ -18,15 +19,9 @@ const SideNav: React.FC<SideNavProps> = ({ items }) => {
   const navigate = useNavigate();
   const location = useLocation();
   const [showNavbar, setShowNavbar] = useState<boolean>(true);
+  const { toggleOnboardModal } = useContext(OnboardingContext);
 
   const path = location.pathname;
-  const sideBarPaths: string[] = [Paths.DASHBOARD, Paths.HOME];
-  const showNavBarIfAuthBasePath = isAuthenticated && path === Paths.BASEPATH;
-  const shouldNavbarShow = showNavBarIfAuthBasePath || sideBarPaths.includes(path);
-
-  useEffect(() => {
-    setShowNavbar(shouldNavbarShow);
-  }, [shouldNavbarShow]);
 
   const handleItemClick = (item: NavItem) => {
     setSelectedItem(item.label);
@@ -46,6 +41,7 @@ const SideNav: React.FC<SideNavProps> = ({ items }) => {
           </li>
         ))}
       </ul>
+      <button onClick={() => toggleOnboardModal()}>GetMe</button>
     </div>
   ) : null;
 };

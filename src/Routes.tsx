@@ -4,6 +4,8 @@ import { AuthContext } from './contexts/Auth/AuthContext';
 import { ProtectedRoute, ProtectedRouteProps } from './Routing/ProtectedRoute';
 import { Paths } from './globals/paths';
 import { Home } from './components/HomeComponent';
+import { DashboardLayout } from './Layouts/Dashboard.Layout';
+import { LandingPageLayout } from './Layouts/LandingPage.Layout';
 
 const AppRoutes = () => {
   const { isAuthenticated, redirectAuthPath } = useContext(AuthContext);
@@ -21,20 +23,31 @@ const AppRoutes = () => {
   const About = lazy(() => import('./components/AboutComponents/About.component'));
 
   const AllRoutes = {
-    HOME: isAuthenticated ? <Home /> : <LandingPage />,
+    HOME: <Home />,
+    LANDINGPAGE: <LandingPage />,
     SIGNIN: <Signin />,
     SIGNUP: <Signup />,
     DASHBOARD: <ProtectedRoute {...defaultProtectedRouteProps} outlet={<Dashboard />} />,
     ABOUT: <About />,
   };
+
+  const AllLayouts = {
+    DASHBOARD_LAYOUT: <DashboardLayout />,
+    LANDINGPAGE_LAYOUT: <LandingPageLayout />,
+  };
   return (
     <Suspense>
       <Routes>
-        <Route path={Paths.BASEPATH} element={AllRoutes.HOME} />
+        <Route element={AllLayouts.DASHBOARD_LAYOUT}>
+          {isAuthenticated ? <Route path={Paths.BASEPATH} element={AllRoutes.HOME} /> : null}
+          <Route path={Paths.DASHBOARD} element={AllRoutes.DASHBOARD} />
+        </Route>
+        <Route element={AllLayouts.LANDINGPAGE_LAYOUT}>
+          <Route path={Paths.BASEPATH} element={AllRoutes.LANDINGPAGE} />
+          <Route path={Paths.ABOUT} element={AllRoutes.ABOUT} />
+        </Route>
         <Route path={Paths.SIGNIN} element={AllRoutes.SIGNIN} />
         <Route path={Paths.SIGNUP} element={AllRoutes.SIGNUP} />
-        <Route path={Paths.HOME} element={AllRoutes.DASHBOARD} />
-        <Route path={Paths.ABOUT} element={AllRoutes.ABOUT} />
       </Routes>
     </Suspense>
   );

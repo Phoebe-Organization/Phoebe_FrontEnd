@@ -18,17 +18,8 @@ const Navigation = () => {
     localStorage.removeItem('token');
     setIsAuthenticated(false);
   };
-  const location = useLocation();
-  const [showNavbar, setShowNavbar] = useState<boolean>(true);
 
   const { toggleOnboardModal } = useContext(OnboardingContext);
-  const path = location.pathname;
-  const showNavBarIfAuthBasePath = !isAuthenticated && path === Paths.BASEPATH;
-  const shouldNavbarShow = showNavBarIfAuthBasePath || path === Paths.ABOUT;
-
-  useEffect(() => {
-    setShowNavbar(shouldNavbarShow);
-  }, [shouldNavbarShow]);
 
   const signInBtn: ButtonProps = {
     btnSize: ButtonSizes.SMALL,
@@ -38,7 +29,7 @@ const Navigation = () => {
     children: 'Sign Out',
   };
 
-  return showNavbar ? (
+  return (
     <Fragment>
       <div className='navbar'>
         <Navbar bg='dark' variant='dark'>
@@ -68,7 +59,7 @@ const Navigation = () => {
         </Navbar>
       </div>
     </Fragment>
-  ) : null;
+  );
 };
 
 export default Navigation;
