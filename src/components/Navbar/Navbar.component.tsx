@@ -22,10 +22,13 @@ const Navigation = () => {
   const [showNavbar, setShowNavbar] = useState<boolean>(true);
 
   const { toggleOnboardModal } = useContext(OnboardingContext);
+  const path = location.pathname;
+  const showNavBarIfAuthBasePath = !isAuthenticated && path === Paths.BASEPATH;
+  const shouldNavbarShow = showNavBarIfAuthBasePath || path === Paths.ABOUT;
 
   useEffect(() => {
-    setShowNavbar(location.pathname !== Paths.SIGNIN && location.pathname !== Paths.SIGNUP);
-  }, [location]);
+    setShowNavbar(shouldNavbarShow);
+  }, [shouldNavbarShow]);
 
   const signInBtn: ButtonProps = {
     btnSize: ButtonSizes.SMALL,

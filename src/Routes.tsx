@@ -3,6 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 import { AuthContext } from './contexts/Auth/AuthContext';
 import { ProtectedRoute, ProtectedRouteProps } from './Routing/ProtectedRoute';
 import { Paths } from './globals/paths';
+import { Home } from './components/HomeComponent';
 
 const AppRoutes = () => {
   const { isAuthenticated, redirectAuthPath } = useContext(AuthContext);
@@ -20,15 +21,16 @@ const AppRoutes = () => {
   const About = lazy(() => import('./components/AboutComponents/About.component'));
 
   const AllRoutes = {
+    HOME: isAuthenticated ? <Home /> : <LandingPage />,
     SIGNIN: <Signin />,
     SIGNUP: <Signup />,
     DASHBOARD: <ProtectedRoute {...defaultProtectedRouteProps} outlet={<Dashboard />} />,
-    ABOUT: <ProtectedRoute {...defaultProtectedRouteProps} outlet={<About />} />,
+    ABOUT: <About />,
   };
   return (
     <Suspense>
       <Routes>
-        <Route path='/' element={<LandingPage />} />
+        <Route path={Paths.BASEPATH} element={AllRoutes.HOME} />
         <Route path={Paths.SIGNIN} element={AllRoutes.SIGNIN} />
         <Route path={Paths.SIGNUP} element={AllRoutes.SIGNUP} />
         <Route path={Paths.HOME} element={AllRoutes.DASHBOARD} />
