@@ -32,8 +32,6 @@ const Onboarding = () => {
     <OnboardingGeolocation setData={setAddress} />,
     <Interests data={interestList} setData={setInterestList} />,
   ];
-  console.log(address);
-  console.log(interestList);
 
   return showModal ? (
     <OnboardingBackground>

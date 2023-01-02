@@ -26,8 +26,6 @@ const SideNav: React.FC<SideNavProps> = ({ items }) => {
 
   useEffect(() => {
     setShowNavbar(shouldNavbarShow);
-    console.log(showNavBarIfAuthBasePath);
-    console.log(shouldNavbarShow);
   }, [shouldNavbarShow]);
 
   const handleItemClick = (item: NavItem) => {
