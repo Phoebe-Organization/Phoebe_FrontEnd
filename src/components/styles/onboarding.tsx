@@ -58,6 +58,7 @@ export const OnboardingContainer = styled.div`
 export const OnboardingStepsContainer = styled.div`
   height: 375px;
   width: 100%;
+  overflow: scroll;
 `;
 
 export const OnboardingProgressionButtonContainer = styled.div`

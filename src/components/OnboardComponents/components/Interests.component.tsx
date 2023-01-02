@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { Divider } from '../../styles/auth';
+import { HorizontalDivider } from '../../styles/global';
 import { InterestButton, InterestButtonContainer } from '../../styles/interests';
 
 interface InterestsProps {
@@ -10,6 +12,68 @@ interface InterestButtonProps {
   interest: string;
   clickEvent: (arg0: boolean, arg1: string) => void;
 }
+
+interface InterestContainerProps {
+  title: string;
+  interests: string[];
+}
+
+const sportsInterests = [
+  'Weight Lifting',
+  'Yoga',
+  'Soccer',
+  'Basketball',
+  'Football',
+  'Bowling',
+  'Surfing',
+  'Hockey',
+  'Tennis',
+  'Baseball',
+  'Golf',
+  'Running',
+  'Volleyball',
+  'Skiing',
+  'Skating',
+  'Roller Skating',
+  'Ice Skating',
+  'Rock Climbing',
+  'Dancing',
+];
+
+const artInterests = [
+  'Painting',
+  'Sculpture',
+  'Literature',
+  'Architecture',
+  'Cinema',
+  'Photography',
+  'Theater',
+];
+
+const musicInterests = [
+  'Hip-Hop/Rap',
+  'Pop',
+  'R&B/Soul',
+  'Country',
+  'Latin Music',
+  'Jazz',
+  'Rock',
+  'Heavy Metal',
+  'K-Pop',
+  'Indie Rock',
+];
+
+const lifeStyleInterests = [
+  'Travel',
+  'Health/Wellness',
+  'Pool Party',
+  'Concerts',
+  'Home Improvements',
+  'NightClub',
+  'House Party',
+  'Bars',
+  'Hiking',
+];
 
 const InterestBtn = ({ interest, clickEvent }: InterestButtonProps) => {
   const [selected, setSelected] = useState(false);
@@ -43,36 +107,28 @@ const Interests = ({ data, setData }: InterestsProps) => {
     }
   };
 
-  const interests = [
-    'Skating',
-    'Dancing',
-    'Fitness',
-    'Yoga',
-    'Art',
-    'Music',
-    'Basketball',
-    'Soccer',
-    'Golf',
-    'Football',
-    'Rock Climbing',
-    'Concerts',
-    'Photography',
-    'Travel',
-    'Video Games',
-    'Food',
-    'Technology',
-    'Chess',
-    'Painting',
-    'Theater',
-    'Gardening',
-    'Baking',
-  ];
+  const InterestContainer = ({ title, interests }: InterestContainerProps) => {
+    return (
+      <>
+        <h5 style={{ margin: '0', textAlign: 'left', marginBottom: '5px' }}>{title}</h5>
+        <HorizontalDivider style={{ width: '350px' }} />
+        <InterestButtonContainer style={{ width: '85%', margin: '15px 0' }}>
+          {interests.map((vals) => {
+            return <InterestBtn key={vals} interest={vals} clickEvent={handleInterest} />;
+          })}
+        </InterestButtonContainer>
+      </>
+    );
+  };
+
   return (
-    <InterestButtonContainer>
-      {interests.map((vals) => {
-        return <InterestBtn key={vals} interest={vals} clickEvent={handleInterest} />;
-      })}
-    </InterestButtonContainer>
+    <>
+      <h3>Select your Interests</h3>
+      <InterestContainer title={'Sports'} interests={sportsInterests} />
+      <InterestContainer title={'Art'} interests={artInterests} />
+      <InterestContainer title={'Music'} interests={musicInterests} />
+      <InterestContainer title={'LifeStyle'} interests={lifeStyleInterests} />
+    </>
   );
 };
 

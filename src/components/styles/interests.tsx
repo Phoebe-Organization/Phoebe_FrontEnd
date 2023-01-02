@@ -20,7 +20,6 @@ export const InterestButtonContainer = styled.div`
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  justify-content: center;
   width: 100%;
   .active {
     background-color: red;
