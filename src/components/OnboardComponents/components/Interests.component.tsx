@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import { Divider } from '../../styles/auth';
+import { useState } from 'react';
 import { HorizontalDivider } from '../../styles/global';
 import { InterestButton, InterestButtonContainer } from '../../styles/interests';
 
@@ -112,7 +111,7 @@ const Interests = ({ data, setData }: InterestsProps) => {
       <>
         <h5 style={{ margin: '0', textAlign: 'left', marginBottom: '5px' }}>{title}</h5>
         <HorizontalDivider style={{ width: '350px' }} />
-        <InterestButtonContainer style={{ width: '85%', margin: '15px 0' }}>
+        <InterestButtonContainer style={{ width: '100%', margin: '15px 0' }}>
           {interests.map((vals) => {
             return <InterestBtn key={vals} interest={vals} clickEvent={handleInterest} />;
           })}

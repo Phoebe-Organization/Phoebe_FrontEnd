@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import { useContext, useState } from 'react';
 import { OnboardingContext } from '../../contexts/Onboarding/OnboardingContext';
 import { useScrollLock } from '../../globals/scrollLock';
 import Button from '../ButtonComponents/Button.component';
@@ -11,6 +11,7 @@ import {
   OnboardingStepsContainer,
 } from '../styles/onboarding';
 import { OnboardingGeolocation } from './components/Geolocation.component';
+import { OnboardingGroups } from './components/Groups.component';
 import Interests from './components/Interests.component';
 import { OnboardingProgression } from './components/Progression.component';
 
@@ -31,12 +32,13 @@ const Onboarding = () => {
   const steps = [
     <OnboardingGeolocation setData={setAddress} />,
     <Interests data={interestList} setData={setInterestList} />,
+    <OnboardingGroups />,
   ];
 
   return showModal ? (
     <OnboardingBackground>
       <OnboardingContainer>
-        <OnboardingProgression step={progress} totalSteps={steps.length} />
+        <OnboardingProgression step={progress} totalSteps={steps.length - 1} />
         <button onClick={() => toggleOnboardModal()}>UNlock Scroll</button>
         <OnboardingStepsContainer>{steps[progress]}</OnboardingStepsContainer>
         <OnboardingProgressionButtonContainer>

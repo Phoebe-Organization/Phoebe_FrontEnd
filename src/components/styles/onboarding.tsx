@@ -46,17 +46,17 @@ export const OnboardingContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   background-color: #ffffff;
   width: 700px;
-  height: 550px;
+  height: 700px;
   border-radius: 40px;
   padding: 50px;
   animation: ${onboardingAnimation} 0.8s linear;
 `;
 
 export const OnboardingStepsContainer = styled.div`
-  height: 375px;
+  height: 425px;
   width: 100%;
   overflow: scroll;
 `;
@@ -124,9 +124,76 @@ export const ProgressionBar = styled.div`
   height: 6px;
   background: red;
 `;
+
 export const ProgressionBarContainer = styled.div`
   background: #b3b3b3;
   height: 6px;
   width: 200px;
   border-radius: 10px;
+`;
+
+export const GroupsWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+export const GroupContainer = styled.div`
+  width: 400px;
+  height: 205px;
+  background: orange;
+  padding: 10px 20px;
+`;
+
+export const GroupHeaderContent = styled.div`
+  display: flex;
+`;
+
+export const GroupImage = styled.img`
+  width: 90px;
+  height: 90px;
+  border-radius: 10px;
+  object-fit: cover;
+  background-size: cover;
+  background-position: center;
+`;
+
+export const GroupContentContainer = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  margin-left: 20px;
+  width: 300px;
+  p {
+    margin: 0;
+  }
+`;
+
+export const GroupName = styled.h1`
+  margin: 0;
+  font-size: 22px;
+  font-weight: 700;
+`;
+
+export const GroupSubHeaderContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  p {
+    margin: 0;
+  }
+`;
+
+export const GroupInterests = styled.div`
+  border-radius: 30px;
+  border: 1px solid #a1a1a1;
+  height: 20px;
+  padding: 5px 10px;
+  font-size: 8px;
+  display: flex;
+  align-items: center;
+  margin: 0px 5px;
+`;
+export const GroupInterestsContainer = styled.div`
+  display: flex;
 `;

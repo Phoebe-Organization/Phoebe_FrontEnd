@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { ProgressionBar, ProgressionBarContainer } from '../../styles/onboarding';
 
 interface OnboardingProgressionProps {
