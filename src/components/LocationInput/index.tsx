@@ -28,7 +28,7 @@ export const LocationInput = ({ setData }: LocationInputProps) => {
   const [selected, setSelected] = useState<boolean>(false);
   const [errorMessage, setErrorMessage] = useState<string>('');
 
-  const handleCityChange = async (e: React.FormEvent<HTMLInputElement>) => {
+  const handleCityChange = (e: React.FormEvent<HTMLInputElement>) => {
     setData(e.currentTarget.value);
     setAddress(e.currentTarget.value);
     setSelected(false);

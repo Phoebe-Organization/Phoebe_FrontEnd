@@ -122,11 +122,17 @@ const Interests = ({ data, setData }: InterestsProps) => {
 
   return (
     <>
-      <h3>Select your Interests</h3>
-      <InterestContainer title={'Sports'} interests={sportsInterests} />
-      <InterestContainer title={'Art'} interests={artInterests} />
-      <InterestContainer title={'Music'} interests={musicInterests} />
-      <InterestContainer title={'LifeStyle'} interests={lifeStyleInterests} />
+      <h3 style={{ margin: '0' }}>Select your Interests</h3>
+      <p style={{ margin: '0' }}>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum magnam dolorum amet
+        cupiditate. Voluptates, est?
+      </p>
+      <div style={{ height: '390px', overflow: 'scroll' }}>
+        <InterestContainer title={'Sports'} interests={sportsInterests} />
+        <InterestContainer title={'Art'} interests={artInterests} />
+        <InterestContainer title={'Music'} interests={musicInterests} />
+        <InterestContainer title={'LifeStyle'} interests={lifeStyleInterests} />
+      </div>
     </>
   );
 };

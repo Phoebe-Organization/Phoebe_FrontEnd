@@ -56,7 +56,7 @@ export const OnboardingContainer = styled.div`
 `;
 
 export const OnboardingStepsContainer = styled.div`
-  height: 425px;
+  height: 475px;
   width: 100%;
   overflow: scroll;
 `;
@@ -66,7 +66,6 @@ export const OnboardingProgressionButtonContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: 15px;
 `;
 
 export const GeolocationOption = styled.div`
@@ -132,17 +131,34 @@ export const ProgressionBarContainer = styled.div`
   border-radius: 10px;
 `;
 
+export const OnboardingGroupsTitleContainer = styled.div`
+  display: flex;
+  height: 100px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  h1 {
+    margin: 0;
+    font-size: 28px;
+  }
+`;
+
 export const GroupsWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  height: 370px;
+  overflow: scroll;
+  padding-bottom: 50px;
 `;
 
 export const GroupContainer = styled.div`
   width: 400px;
   height: 205px;
-  background: orange;
   padding: 10px 20px;
+  border: 1px solid #c7c7c7;
+  border-radius: 15px;
+  margin: 5px 0;
 `;
 
 export const GroupHeaderContent = styled.div`
@@ -151,6 +167,8 @@ export const GroupHeaderContent = styled.div`
 
 export const GroupImage = styled.img`
   width: 90px;
+  min-width: 90px;
+  min-height: 90px;
   height: 90px;
   border-radius: 10px;
   object-fit: cover;
@@ -167,6 +185,7 @@ export const GroupContentContainer = styled.div`
   width: 300px;
   p {
     margin: 0;
+    font-size: 14px;
   }
 `;
 
@@ -181,19 +200,62 @@ export const GroupSubHeaderContent = styled.div`
   flex-direction: column;
   p {
     margin: 0;
+    text-align: left;
+    font-size: 12px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    margin-bottom: 10px;
   }
 `;
 
 export const GroupInterests = styled.div`
   border-radius: 30px;
-  border: 1px solid #a1a1a1;
-  height: 20px;
-  padding: 5px 10px;
-  font-size: 8px;
+  height: 24px;
+  padding: 7px 12px;
+  font-size: 12px;
   display: flex;
   align-items: center;
-  margin: 0px 5px;
+  margin: 0px 3px;
+  background: #55c2da;
+  color: #ffffff;
 `;
 export const GroupInterestsContainer = styled.div`
   display: flex;
+`;
+
+export const OnboardingDescriptionInput = styled.textarea`
+  width: 100%;
+  max-width: 500px;
+  min-height: 100px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  padding: 10px;
+  resize: vertical;
+  word-wrap: break-word;
+  :focus {
+    outline: none;
+    border-color: #3498db;
+  }
+`;
+
+export const DescriptionContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  .character-count {
+    width: 100%;
+    max-width: 500px;
+    text-align: right;
+    font-size: 12px;
+    color: #666;
+    margin-top: 4px;
+    .max-length {
+      color: #f02f2f;
+    }
+  }
 `;

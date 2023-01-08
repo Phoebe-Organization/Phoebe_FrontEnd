@@ -10,6 +10,8 @@ import {
   OnboardingProgressionButtonContainer,
   OnboardingStepsContainer,
 } from '../styles/onboarding';
+import { OnboardingDescription } from './components/Description.component';
+import { OnboardingFollowUsers } from './components/FollowUsers.component';
 import { OnboardingGeolocation } from './components/Geolocation.component';
 import { OnboardingGroups } from './components/Groups.component';
 import Interests from './components/Interests.component';
@@ -19,27 +21,34 @@ const Onboarding = () => {
   const { lockScroll, unlockScroll } = useScrollLock();
   const { toggleOnboardModal, showModal } = useContext(OnboardingContext);
 
-  const [progress, setProgress] = useState<number>(1);
+  const [progress, setProgress] = useState<number>(0);
   if (showModal) {
     lockScroll();
   } else {
     unlockScroll();
   }
 
+  const handleModalCompletion = () => {
+    setProgress(0);
+    toggleOnboardModal();
+  };
+
   const [address, setAddress] = useState<string>('');
+  const [description, setDescription] = useState<string>('');
   const [interestList, setInterestList] = useState<string[]>([]);
 
   const steps = [
     <OnboardingGeolocation setData={setAddress} />,
+    <OnboardingDescription value={description} setData={setDescription} />,
     <Interests data={interestList} setData={setInterestList} />,
     <OnboardingGroups />,
+    <OnboardingFollowUsers />,
   ];
 
   return showModal ? (
     <OnboardingBackground>
       <OnboardingContainer>
         <OnboardingProgression step={progress} totalSteps={steps.length - 1} />
-        <button onClick={() => toggleOnboardModal()}>UNlock Scroll</button>
         <OnboardingStepsContainer>{steps[progress]}</OnboardingStepsContainer>
         <OnboardingProgressionButtonContainer>
           <Button
@@ -52,9 +61,13 @@ const Onboarding = () => {
           <Button
             btnSize={ButtonSizes.SMALL}
             btnStyle={ButtonStyles.SECONDARY}
-            action={() => setProgress((val) => ++val)}
+            action={
+              progress >= steps.length - 1
+                ? () => handleModalCompletion()
+                : () => setProgress((val) => ++val)
+            }
           >
-            Next
+            {progress >= steps.length - 1 ? 'Finish' : 'Next'}
           </Button>
         </OnboardingProgressionButtonContainer>
       </OnboardingContainer>
