@@ -154,7 +154,6 @@ export const GroupsWrapper = styled.div`
 
 export const GroupContainer = styled.div`
   width: 400px;
-  height: 205px;
   padding: 10px 20px;
   border: 1px solid #c7c7c7;
   border-radius: 15px;
@@ -258,4 +257,10 @@ export const DescriptionContainer = styled.div`
       color: #f02f2f;
     }
   }
+`;
+
+export const GroupBottomContentConatiner = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 `;
