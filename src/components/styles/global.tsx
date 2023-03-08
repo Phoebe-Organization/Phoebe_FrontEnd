@@ -84,3 +84,10 @@ export const VerticalDivider = styled.div`
   background-color: #b1b1b17c;
   margin: 0px 40px;
 `;
+
+export const HorizontalDivider = styled.div`
+  width: 300px;
+  height: 1px;
+  min-height: 1px;
+  background-color: #b1b1b17c;
+`;

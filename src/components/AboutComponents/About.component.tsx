@@ -5,10 +5,6 @@ interface AboutSectionProps {
 }
 
 const About = () => {
-  //   useEffect(() => {
-  //     showNav(true);
-  //   }, []);
-  console.log('Helllo from About');
   return (
     <div>
       <h1>Hello From About Section!</h1>

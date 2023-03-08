@@ -1,7 +1,8 @@
 export enum Paths {
+  BASEPATH = '/',
   SIGNIN = '/signin',
   SIGNUP = '/signup',
-  HOME = '/home',
+  DASHBOARD = '/dashboard',
   ABOUT = '/about',
   ONBOARDING = '/onboarding',
 }

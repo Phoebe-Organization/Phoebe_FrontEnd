@@ -34,10 +34,18 @@ export const AuthBackButton = styled.div`
 
 export const SigninContentContainer = styled.div`
   min-height: 600px;
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 export const SignupContentContainer = styled.div`
   min-height: 800px;
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 export const AuthVideoContainer = styled.div`

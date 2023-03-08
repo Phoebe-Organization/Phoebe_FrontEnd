@@ -8,8 +8,9 @@ import Button from '../ButtonComponents/Button.component';
 import { ButtonProps } from '../ButtonComponents/Button.component';
 import { ButtonSizes } from '../ButtonComponents/ButtonSizes';
 import { ButtonStyles } from '../ButtonComponents/ButtonStyles';
-import { AuthContext } from '../../contexts/AuthContext';
+import { AuthContext } from '../../contexts/Auth/AuthContext';
 import { Paths } from '../../globals/paths';
+import { OnboardingContext } from '../../contexts/Onboarding/OnboardingContext';
 
 const Navigation = () => {
   const { isAuthenticated, setIsAuthenticated } = useContext(AuthContext);
@@ -23,6 +24,8 @@ const Navigation = () => {
   useEffect(() => {
     setShowNavbar(location.pathname !== Paths.SIGNIN && location.pathname !== Paths.SIGNUP);
   }, [location]);
+
+  const { toggleOnboardModal } = useContext(OnboardingContext);
 
   const signInBtn: ButtonProps = {
     btnSize: ButtonSizes.SMALL,
@@ -52,10 +55,11 @@ const Navigation = () => {
                   Sign In
                 </Link>
               ) : (
-                <Link to='/signin' className='navLink'>
+                <Link to='/signin' className='navLink' onClick={() => signOut()}>
                   Sign Out
                 </Link>
               )}
+              <button onClick={() => toggleOnboardModal()}>GetMe</button>
             </Nav>
           </Container>
         </Navbar>

@@ -4,7 +4,8 @@ import setAxiosAuthToken from '../utils/setAxiosAuthToken';
 import axios from 'axios';
 import { saveAuthToken } from '../utils/saveAuthToken';
 import { useNavigate } from 'react-router-dom';
-import { AuthContext } from '../contexts/AuthContext';
+import { AuthContext } from '../contexts/Auth/AuthContext';
+import { Paths } from '../globals/paths';
 
 interface UserCredentials {
   email: string;
@@ -97,7 +98,7 @@ const useSignIn = () => {
       console.log(data, variables, context);
       saveAuthToken(data.data.tokens.access.token);
       setIsAuthenticated(true);
-      navigate('/home');
+      navigate(Paths.DASHBOARD);
     },
   });
 
@@ -154,7 +155,7 @@ const useSignUp = () => {
     onSuccess: (data, variables, context) => {
       console.log(data, variables, context);
       saveAuthToken(data.data.tokens.access.token);
-      navigate('/onboarding');
+      navigate(Paths.DASHBOARD);
     },
   });
 
